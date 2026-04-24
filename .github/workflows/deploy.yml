@@ -78,14 +78,14 @@ jobs:
           PLAYWRIGHT_BASE_URL: http://localhost:3030
         run: pnpm test:a11y
 
-      - name: Rewrite prod URLs → localhost in registry JSON for smoke (PR only)
-        if: github.event_name == 'pull_request'
+      - name: Rewrite prod URLs → localhost in registry JSON for smoke
         run: |
-          # Pre-merge CI can't fetch cross-primitive registryDependencies from
-          # prod (those URLs only exist after this PR merges). Rewrite prod
-          # URLs to localhost so shadcn resolves siblings against the local
-          # serve. Gated on pull_request so the main-branch push (which
-          # uploads to GitHub Pages) keeps original prod URLs intact.
+          # Cross-primitive registryDependencies reference prod URLs that don't
+          # contain THIS run's new artifacts yet (the deploy step runs after
+          # smoke, so the live registry is one cycle behind). Rewrite the
+          # bundled JSON to localhost so shadcn resolves siblings against the
+          # local serve. Reverted after smoke so the deploy artifact keeps
+          # prod URLs.
           find out/r -name '*.json' -print0 | xargs -0 sed -i 's|https://registry.016910804.xyz|http://localhost:3000|g'
 
       - name: Start registry server for smoke (:3000)
@@ -101,6 +101,11 @@ jobs:
       - name: Stop registry server
         if: always()
         run: kill $(cat /tmp/serve.pid) 2>/dev/null || true
+
+      - name: Restore prod URLs in registry JSON (deploy artifact)
+        if: always()
+        run: |
+          find out/r -name '*.json' -print0 | xargs -0 sed -i 's|http://localhost:3000|https://registry.016910804.xyz|g'
 
       - name: Upload Pages artifact
         if: github.event_name == 'push'
