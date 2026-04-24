@@ -47,7 +47,8 @@ const ScrollArea = React.forwardRef<
     >
       <ScrollAreaPrimitive.Viewport
         data-testid="scroll-area-viewport"
-        className="h-full w-full rounded-[inherit]"
+        tabIndex={0}
+        className="h-full w-full rounded-[inherit] focus-visible:outline-none focus-visible:shadow-[var(--shadow-focus)]"
       >
         {children}
       </ScrollAreaPrimitive.Viewport>
