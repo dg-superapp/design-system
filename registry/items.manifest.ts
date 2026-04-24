@@ -94,4 +94,34 @@ export function itemUrl(name: string): string {
  * `generateStaticParams()` tolerates [] — Next.js simply emits no
  * `/preview/[item]` routes until the array is populated.
  */
-export const items: ManifestEntry[] = [];
+export const items: ManifestEntry[] = [
+  {
+    name: 'button',
+    title: 'Button',
+    docsSlug: 'button',
+    registryUrl: itemUrl('button'),
+    description: '4 variants × 2 sizes, CVA-driven, DGC-tokened, asChild support.',
+    controls: [
+      {
+        kind: 'variant',
+        name: 'variant',
+        options: ['primary', 'secondary', 'ghost', 'ghost-danger'] as const,
+        default: 'primary',
+      },
+      {
+        kind: 'variant',
+        name: 'size',
+        options: ['default', 'sm'] as const,
+        default: 'default',
+      },
+      { kind: 'boolean', name: 'disabled', default: false },
+      { kind: 'boolean', name: 'loading', default: false },
+      {
+        kind: 'text',
+        name: 'label',
+        default: 'ចុចនៅទីនេះ',
+        placeholder: 'Button label',
+      },
+    ] as const,
+  },
+];

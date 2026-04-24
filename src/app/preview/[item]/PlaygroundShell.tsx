@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import type { ManifestEntry, PropControl } from '../../../../registry/items.manifest';
+import { previewRenderers } from './renderers';
 
 /**
  * PlaygroundShell — Phase 3 Wave 0 (3-CONTEXT D-11, D-12, D-13).
@@ -131,7 +132,7 @@ export function PlaygroundShell({ entry }: PlaygroundShellProps) {
           className="playground-frame mx-auto rounded-md border border-border bg-card p-6"
           style={frameWrapperStyle}
         >
-          <PreviewSlot entry={entry} />
+          <PreviewSlot entry={entry} state={values} />
         </div>
       </main>
     </div>
@@ -209,15 +210,25 @@ function PropKnob({
 }
 
 /**
- * Preview slot — placeholder until primitive plans 3-01..3-14 register
- * their render functions via a component registry module. Keeping this
- * a separate named export makes it trivial for those plans to replace
- * the import with the real registry.
+ * Preview slot — dispatches to the renderer registered in
+ * `./renderers/index.ts`. Plans 3-01..3-14 add their entry there.
+ * Falls back to a human-readable placeholder when a manifest entry
+ * ships before its renderer is registered.
  */
-function PreviewSlot({ entry }: { entry: ManifestEntry }) {
-  return (
-    <div className="flex min-h-[200px] items-center justify-center text-sm text-muted-foreground">
-      Preview not implemented for <code className="ml-1">{entry.name}</code>
-    </div>
-  );
+function PreviewSlot({
+  entry,
+  state,
+}: {
+  entry: ManifestEntry;
+  state: Record<string, PropValue>;
+}) {
+  const Renderer = previewRenderers[entry.name];
+  if (!Renderer) {
+    return (
+      <div className="flex min-h-[200px] items-center justify-center text-sm text-muted-foreground">
+        Preview not implemented for <code className="ml-1">{entry.name}</code>
+      </div>
+    );
+  }
+  return <Renderer state={state} />;
 }

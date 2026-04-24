@@ -122,6 +122,22 @@
         }
       ],
       "cssVars": {}
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "DGC-branded button with 4 variants, 2 sizes, icon slot, and WCAG AA disabled state.",
+      "dependencies": ["class-variance-authority", "lucide-react", "@radix-ui/react-slot"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/button/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        }
+      ],
+      "cssVars": {}
     }
   ]
 }
