@@ -36,8 +36,10 @@ jobs:
       - name: Lint (fails CI on lint errors — R10.4)
         run: pnpm lint
 
-      - name: HEX→HSL converter spec (Phase 2 R3.2)
-        run: pnpm exec node scripts/hex-to-hsl.spec.mjs
+      # HEX→HSL converter spec is a LOCAL-ONLY check — requires
+      # project/colors_and_type.css from the sibling design-system repo,
+      # which is intentionally not vendored here. Run locally before PR:
+      #   pnpm exec node scripts/hex-to-hsl.spec.mjs
 
       - name: Dogfood drift check (globals.css == theme.css)
         run: pnpm drift:check
