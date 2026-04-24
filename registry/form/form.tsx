@@ -12,7 +12,7 @@ import {
   useFormState,
 } from "react-hook-form";
 
-import { Label } from "../label/label";
+import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
 /**
