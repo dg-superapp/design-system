@@ -78,6 +78,16 @@ jobs:
           PLAYWRIGHT_BASE_URL: http://localhost:3030
         run: pnpm test:a11y
 
+      - name: Rewrite prod URLs → localhost in registry JSON for smoke (PR only)
+        if: github.event_name == 'pull_request'
+        run: |
+          # Pre-merge CI can't fetch cross-primitive registryDependencies from
+          # prod (those URLs only exist after this PR merges). Rewrite prod
+          # URLs to localhost so shadcn resolves siblings against the local
+          # serve. Gated on pull_request so the main-branch push (which
+          # uploads to GitHub Pages) keeps original prod URLs intact.
+          find out/r -name '*.json' -print0 | xargs -0 sed -i 's|https://registry.016910804.xyz|http://localhost:3000|g'
+
       - name: Start registry server for smoke (:3000)
         run: |
           nohup npx --yes serve out -l 3000 > /tmp/serve.log 2>&1 &
