@@ -292,4 +292,26 @@ export const items: ManifestEntry[] = [
       },
     ] as const,
   },
+  {
+    name: 'tooltip',
+    title: 'Tooltip',
+    docsSlug: 'tooltip',
+    registryUrl: itemUrl('tooltip'),
+    description:
+      'Radix Tooltip — dark --gray-900 surface, appears on hover/focus, Escape closes.',
+    controls: [
+      {
+        kind: 'text',
+        name: 'content',
+        default: 'ជំនួយ',
+        placeholder: 'Tooltip text',
+      },
+      {
+        kind: 'variant',
+        name: 'side',
+        options: ['top', 'right', 'bottom', 'left'] as const,
+        default: 'top',
+      },
+    ] as const,
+  },
 ];

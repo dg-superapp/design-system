@@ -266,6 +266,22 @@
         }
       ],
       "cssVars": {}
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Radix Tooltip bundle — --gray-900 bg, white text, --radius-sm, --shadow-2, max-w-200. Exports TooltipProvider/Tooltip/TooltipTrigger/TooltipContent/TooltipArrow.",
+      "dependencies": ["@radix-ui/react-tooltip"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/tooltip/tooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tooltip.tsx"
+        }
+      ],
+      "cssVars": {}
     }
   ]
 }
