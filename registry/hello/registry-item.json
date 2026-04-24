@@ -3,9 +3,9 @@
   "name": "hello",
   "type": "registry:ui",
   "title": "Hello World (pipeline placeholder)",
-  "description": "Phase 1 placeholder — validates the shadcn build + GH Pages deploy pipeline. Remove in Phase 2.",
+  "description": "Phase 1 placeholder — validates the shadcn build + GH Pages deploy pipeline. Phase 2 migrates it to dgc-theme tokens (bg-brand) as proof-of-concept for R3.5.",
   "dependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": ["dgc-theme"],
   "files": [
     {
       "path": "registry/hello/hello.tsx",
