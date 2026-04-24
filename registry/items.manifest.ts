@@ -348,4 +348,30 @@ export const items: ManifestEntry[] = [
       { kind: 'boolean', name: 'decorative', default: true },
     ] as const,
   },
+  {
+    name: 'scroll-area',
+    title: 'ScrollArea',
+    docsSlug: 'scroll-area',
+    registryUrl: itemUrl('scroll-area'),
+    description:
+      'Radix ScrollArea — 8px --gray-300 thumb with pill corners, fades on hover (type="hover"), --dur-fast transition; consumer sets height/max-height.',
+    controls: [
+      {
+        kind: 'text',
+        name: 'maxHeight',
+        label: 'Max height (CSS)',
+        default: '240px',
+        placeholder: '240px',
+      },
+      {
+        kind: 'number',
+        name: 'rowCount',
+        label: 'Row count',
+        default: 30,
+        min: 5,
+        max: 100,
+        step: 5,
+      },
+    ] as const,
+  },
 ];

@@ -11,6 +11,7 @@ import { BadgePreview } from './badge';
 import { TooltipPreview } from './tooltip';
 import { TabsPreview } from './tabs';
 import { SeparatorPreview } from './separator';
+import { ScrollAreaPreview } from './scroll-area';
 
 /**
  * Preview renderer registry — Phase 3 Plan 3-01.
@@ -42,4 +43,5 @@ export const previewRenderers: Record<string, PreviewRenderer> = {
   tooltip: TooltipPreview,
   tabs: TabsPreview,
   separator: SeparatorPreview,
+  'scroll-area': ScrollAreaPreview,
 };

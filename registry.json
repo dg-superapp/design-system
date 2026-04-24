@@ -314,6 +314,22 @@
         }
       ],
       "cssVars": {}
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "ScrollArea",
+      "description": "Radix ScrollArea bundle with DGC-tokened scrollbar — 8px thumb (hsl(var(--gray-300)) → hover hsl(var(--gray-400))), pill corners, --dur-fast fade on hover via Radix type='hover'. Consumer sets height/max-height; component does not self-constrain. Exports ScrollArea (Root+Viewport+ScrollBar+Corner) and ScrollBar.",
+      "dependencies": ["@radix-ui/react-scroll-area"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/scroll-area/scroll-area.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/scroll-area.tsx"
+        }
+      ],
+      "cssVars": {}
     }
   ]
 }
