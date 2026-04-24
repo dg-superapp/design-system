@@ -331,4 +331,21 @@ export const items: ManifestEntry[] = [
       { kind: 'boolean', name: 'withBadges', default: false },
     ] as const,
   },
+  {
+    name: 'separator',
+    title: 'Separator',
+    docsSlug: 'separator',
+    registryUrl: itemUrl('separator'),
+    description:
+      'Radix Separator — 1px hsl(var(--border)) rule, horizontal or vertical, decorative by default.',
+    controls: [
+      {
+        kind: 'variant',
+        name: 'orientation',
+        options: ['horizontal', 'vertical'] as const,
+        default: 'horizontal',
+      },
+      { kind: 'boolean', name: 'decorative', default: true },
+    ] as const,
+  },
 ];

@@ -298,6 +298,22 @@
         }
       ],
       "cssVars": {}
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Radix Separator — 1px hsl(var(--border)) rule. Horizontal (h-[1px] w-full) or vertical (w-[1px] h-full) via data-orientation. decorative default true (role=none); decorative=false yields role=separator + aria-orientation.",
+      "dependencies": ["@radix-ui/react-separator"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/separator/separator.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/separator.tsx"
+        }
+      ],
+      "cssVars": {}
     }
   ]
 }
