@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DGC MiniApp — shadcn Component Registry
 
-## Getting Started
+Shadcn-compatible component registry for the Cambodia Gov MiniApp design system. Primitives, MiniApp-specific blocks, and DGC theme tokens delivered as editable source straight into your Next.js or Vite project.
 
-First, run the development server:
+Hosted at **https://registry.016910804.xyz**.
+
+## Install a component
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx shadcn@latest add https://registry.016910804.xyz/r/button.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Components land in your `components/ui/` folder as standard `.tsx` files. Edit them freely — no runtime dependency on this registry.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Install the DGC theme
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Every DGC component pulls `dgc-theme` automatically via `registryDependencies`. To install the theme on its own:
 
-## Learn More
+```bash
+npx shadcn@latest add https://registry.016910804.xyz/r/dgc-theme.json
+```
 
-To learn more about Next.js, take a look at the following resources:
+This injects DGC tokens (`--blue-900`, `--space-*`, `--text-*`, `--radius-*`) plus shadcn semantic aliases (`--primary`, `--background`, …) into your `globals.css` and extends `tailwind.config.ts`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Bilingual (Khmer + English)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All components render correctly under `lang="km"` with the DGC font stack (Noto Sans Khmer → Kantumruy Pro → Battambang fallback). Khmer line-height is `1.6` to accommodate coeng and subscripts.
 
-## Deploy on Vercel
+## Requirements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Next.js 15+ (App Router) or Vite + React 19
+- Tailwind CSS v4
+- shadcn CLI v4
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Local development
+
+```bash
+pnpm install
+pnpm dev            # preview site at http://localhost:3000
+pnpm registry:build # generate public/r/*.json
+pnpm build          # shadcn build && next build → static export in out/
+```
+
+## Scope
+
+**In registry:** tokens, primitives (Button, Input, Select, …), MiniApp components (AppHeader, HeroBanner, NavRow, FileUploader, MinistryPicker, …), feedback surfaces (Alert, Dialog, Sheet, Toast, …).
+
+**Not in registry:** SuperApp host chrome (status bar, bottom tab bar, home grid). Those belong to the SuperApp team.
+
+## Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+## License
+
+TBD — pending Phase 1 Task 6 decision. See [LICENSE](./LICENSE) placeholder.

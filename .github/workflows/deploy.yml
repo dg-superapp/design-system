@@ -1,0 +1,64 @@
+name: Build & Deploy Registry
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Lint (fails CI on lint errors — R10.4)
+        run: pnpm lint
+
+      - name: Build shadcn registry → public/r/*.json
+        run: pnpm dlx shadcn@latest build
+
+      - name: Build Next.js static site → out/
+        run: pnpm exec next build
+
+      # Safety net: ensure /r/ is in the shipped artifact (Pitfall #5 belt-and-braces).
+      - name: Copy registry JSON into export
+        run: |
+          mkdir -p out/r
+          cp -r public/r/* out/r/ 2>/dev/null || true
+
+      - name: Disable Jekyll
+        run: touch out/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

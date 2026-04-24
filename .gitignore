@@ -17,6 +17,10 @@
 /.next/
 /out/
 
+# shadcn build output — regenerate in CI, don't commit
+public/r/
+!public/r/.gitkeep
+
 # production
 /build
 

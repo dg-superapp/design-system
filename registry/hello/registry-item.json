@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hello",
+  "type": "registry:ui",
+  "title": "Hello World (pipeline placeholder)",
+  "description": "Phase 1 placeholder — validates the shadcn build + GH Pages deploy pipeline. Remove in Phase 2.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/hello/hello.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/hello.tsx"
+    }
+  ],
+  "cssVars": {}
+}
