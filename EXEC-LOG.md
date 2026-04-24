@@ -19,3 +19,7 @@
      - required_linear_history=true, allow_force_pushes=false, allow_deletions=false
      - enforce_admins=false (admins can bypass for emergency patches)
   6. main now unmerge-able with red check or without 1 approval. R2.4 complete.
+
+# Phase 2 execution log
+
+- [x] Task 1 — branch `phase/2-theme` from main; `scripts/hex-to-hsl.mjs` (HEX→HSL, --verify flag, 9-entry golden table); `scripts/hex-to-hsl.spec.mjs` (8 assertions passing); `#0D47A1 → 216 85% 34%` verified.
