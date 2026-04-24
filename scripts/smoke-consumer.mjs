@@ -216,7 +216,10 @@ try {
     const manifestSrc = readFileSync(manifestPath, 'utf8');
     // Extract the `name:` fields from the manifest entries. Tolerant regex —
     // Wave 0 manifest was empty; Phase 3 exit (3-17) requires all 14.
-    const names = [...manifestSrc.matchAll(/name:\s*["'`]([^"'`]+)["'`]/g)].map((m) => m[1]);
+    // Match only top-level ManifestEntry `name:` (the first field inside each
+     // entry object). Control entries inside `controls: [...]` start with
+     // `kind:` before their `name:`, so the `\{` anchor excludes them.
+    const names = [...manifestSrc.matchAll(/\{\s*name:\s*["'`]([^"'`]+)["'`]/g)].map((m) => m[1]);
     if (names.length === 0) {
       log('[SKIP] SMOKE_WITH_PRIMITIVES=1 — manifest is empty (Wave 0). Plans 3-01..3-14 will populate it.');
     } else {
