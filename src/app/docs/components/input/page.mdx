@@ -1,0 +1,74 @@
+import { CopyInstallButton } from "@/components/docs/CopyInstallButton";
+
+export const metadata = {
+  title: "Input — DGC MiniApp Design System",
+  description:
+    "48 px text and date input with full state matrix and Khmer date placeholder.",
+};
+
+# Input
+
+The input primitive is a 48 px-tall text field with default, focus, error, and disabled states. It pairs with `Label` via `htmlFor` and supports `type="date"` with a Khmer-aware placeholder.
+
+## Installation
+
+<CopyInstallButton name="input" />
+
+## Props
+
+| Prop            | Type                                      | Default  | Description                                                                    |
+| --------------- | ----------------------------------------- | -------- | ------------------------------------------------------------------------------ |
+| `type`          | `"text" \| "email" \| "date" \| ...`      | `"text"` | Standard HTML input type. `date` renders a Khmer placeholder under `lang="km"`. |
+| `placeholder`   | `string`                                  | —        | Placeholder text. Coloured via `--muted-foreground`.                            |
+| `disabled`      | `boolean`                                 | `false`  | Renders with `--background` fill and `cursor: not-allowed`.                     |
+| `aria-invalid`  | `boolean`                                 | —        | Switches border to `--danger` and enables error styling.                        |
+| `aria-describedby` | `string`                               | —        | Points to the associated error or description element.                          |
+
+## Variants
+
+States are visual, not CVA-driven. Toggle them in the [input playground](/preview/input/).
+
+| State        | Border token      | Background token | Foreground token        |
+| ------------ | ----------------- | ---------------- | ----------------------- |
+| Default      | `--input`         | `--card`         | `--foreground`          |
+| Focus        | `--blue-700`      | `--card`         | `--foreground`          |
+| Error        | `--danger`        | `--card`         | `--foreground`          |
+| Disabled     | `--input`         | `--background`   | `--muted-foreground`    |
+
+## Usage
+
+### Khmer / ភាសាខ្មែរ
+
+```tsx
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+export function EmailFieldKm() {
+  return (
+    <div className="flex flex-col gap-2">
+      <Label htmlFor="email">អាស័យដ្ឋានអ៊ីមែល</Label>
+      <Input id="email" type="email" placeholder="name@example.com" />
+    </div>
+  );
+}
+```
+
+### English
+
+```tsx
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+export function EmailFieldEn() {
+  return (
+    <div className="flex flex-col gap-2">
+      <Label htmlFor="email">Email address</Label>
+      <Input id="email" type="email" placeholder="name@example.com" />
+    </div>
+  );
+}
+```
+
+## Playground
+
+See the [input playground](/preview/input/) for state transitions and the Khmer date placeholder.

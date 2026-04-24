@@ -1,0 +1,96 @@
+import { CopyInstallButton } from "@/components/docs/CopyInstallButton";
+
+export const metadata = {
+  title: "Select — DGC MiniApp Design System",
+  description:
+    "Radix Select bundle with 48 px trigger, Input-parity state matrix, and keyboard navigation.",
+};
+
+# Select
+
+Dropdown select built on `@radix-ui/react-select`. The trigger matches Input visually (48 px, `--radius-md`, full state matrix). The content panel elevates to `--shadow-2` and highlights the selected item with `--blue-050`.
+
+## Installation
+
+<CopyInstallButton name="select" />
+
+## Props
+
+| Prop           | Type                                              | Default | Description                                                   |
+| -------------- | ------------------------------------------------- | ------- | ------------------------------------------------------------- |
+| `value`        | `string`                                          | —       | Controlled selected value.                                    |
+| `defaultValue` | `string`                                          | —       | Uncontrolled initial value.                                   |
+| `onValueChange`| `(value: string) => void`                         | —       | Fires on selection change.                                    |
+| `disabled`     | `boolean`                                         | `false` | Disables trigger; applies `--muted-foreground` and cursor.    |
+| `required`     | `boolean`                                         | `false` | Marks the field as required for form submission.              |
+
+Sub-parts exported: `Select`, `SelectTrigger`, `SelectContent`, `SelectItem`, `SelectLabel`, `SelectSeparator`, `SelectScrollUpButton`, `SelectScrollDownButton`.
+
+## Variants
+
+Select reuses Input's state matrix for the trigger. The content panel has one elevation — `--shadow-2`.
+
+| State    | Trigger border | Trigger background | Shadow             |
+| -------- | -------------- | ------------------ | ------------------ |
+| Default  | `--input`      | `--card`           | none               |
+| Open     | `--blue-700`   | `--card`           | `--shadow-focus`   |
+| Error    | `--danger`     | `--card`           | none               |
+| Disabled | `--input`      | `--background`     | none               |
+
+## Usage
+
+### Khmer / ភាសាខ្មែរ
+
+```tsx
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select";
+
+export function LanguageSelectKm() {
+  return (
+    <Select>
+      <SelectTrigger className="w-full">
+        <SelectValue placeholder="ជ្រើសរើសភាសា" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="km">ភាសាខ្មែរ</SelectItem>
+        <SelectItem value="en">ភាសាអង់គ្លេស</SelectItem>
+      </SelectContent>
+    </Select>
+  );
+}
+```
+
+### English
+
+```tsx
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select";
+
+export function LanguageSelectEn() {
+  return (
+    <Select>
+      <SelectTrigger className="w-full">
+        <SelectValue placeholder="Select a language" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="km">Khmer</SelectItem>
+        <SelectItem value="en">English</SelectItem>
+      </SelectContent>
+    </Select>
+  );
+}
+```
+
+## Playground
+
+See the [select playground](/preview/select/) for keyboard navigation and the selected-item highlight.
