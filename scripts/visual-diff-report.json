@@ -1,0 +1,408 @@
+{
+  "target": "http://localhost:3000",
+  "threshold": 3,
+  "totalReference": 22,
+  "totalTarget": 54,
+  "matched": 22,
+  "unmatched": 0,
+  "failures": 0,
+  "timestamp": "2026-04-24T11:56:08.379Z",
+  "results": [
+    {
+      "token": "blue-900",
+      "expectedHex": "#0D47A1",
+      "expectedRgb": {
+        "r": 13,
+        "g": 71,
+        "b": 161
+      },
+      "computedRgb": {
+        "r": 13,
+        "g": 72,
+        "b": 160
+      },
+      "computed": "rgb(13, 72, 160)",
+      "maxChannelDelta": 1,
+      "status": "pass",
+      "source": "colors-primary.html"
+    },
+    {
+      "token": "blue-700",
+      "expectedHex": "#1565C0",
+      "expectedRgb": {
+        "r": 21,
+        "g": 101,
+        "b": 192
+      },
+      "computedRgb": {
+        "r": 21,
+        "g": 101,
+        "b": 193
+      },
+      "computed": "rgb(21, 101, 193)",
+      "maxChannelDelta": 1,
+      "status": "pass",
+      "source": "colors-primary.html"
+    },
+    {
+      "token": "blue-400",
+      "expectedHex": "#42A5F5",
+      "expectedRgb": {
+        "r": 66,
+        "g": 165,
+        "b": 245
+      },
+      "computedRgb": {
+        "r": 66,
+        "g": 165,
+        "b": 245
+      },
+      "computed": "rgb(66, 165, 245)",
+      "maxChannelDelta": 0,
+      "status": "pass",
+      "source": "colors-primary.html"
+    },
+    {
+      "token": "blue-100",
+      "expectedHex": "#E3F2FD",
+      "expectedRgb": {
+        "r": 227,
+        "g": 242,
+        "b": 253
+      },
+      "computedRgb": {
+        "r": 226,
+        "g": 242,
+        "b": 253
+      },
+      "computed": "rgb(226, 242, 253)",
+      "maxChannelDelta": 1,
+      "status": "pass",
+      "source": "colors-primary.html"
+    },
+    {
+      "token": "white",
+      "expectedHex": "#FFFFFF",
+      "expectedRgb": {
+        "r": 255,
+        "g": 255,
+        "b": 255
+      },
+      "computedRgb": {
+        "r": 255,
+        "g": 255,
+        "b": 255
+      },
+      "computed": "rgb(255, 255, 255)",
+      "maxChannelDelta": 0,
+      "status": "pass",
+      "source": "colors-neutrals.html"
+    },
+    {
+      "token": "gray-050",
+      "expectedHex": "#F5F7FA",
+      "expectedRgb": {
+        "r": 245,
+        "g": 247,
+        "b": 250
+      },
+      "computedRgb": {
+        "r": 245,
+        "g": 247,
+        "b": 250
+      },
+      "computed": "rgb(245, 247, 250)",
+      "maxChannelDelta": 0,
+      "status": "pass",
+      "source": "colors-neutrals.html"
+    },
+    {
+      "token": "gray-200",
+      "expectedHex": "#E0E0E0",
+      "expectedRgb": {
+        "r": 224,
+        "g": 224,
+        "b": 224
+      },
+      "computedRgb": {
+        "r": 224,
+        "g": 224,
+        "b": 224
+      },
+      "computed": "rgb(224, 224, 224)",
+      "maxChannelDelta": 0,
+      "status": "pass",
+      "source": "colors-neutrals.html"
+    },
+    {
+      "token": "gray-300",
+      "expectedHex": "#BDBDBD",
+      "expectedRgb": {
+        "r": 189,
+        "g": 189,
+        "b": 189
+      },
+      "computedRgb": {
+        "r": 189,
+        "g": 189,
+        "b": 189
+      },
+      "computed": "rgb(189, 189, 189)",
+      "maxChannelDelta": 0,
+      "status": "pass",
+      "source": "colors-neutrals.html"
+    },
+    {
+      "token": "gray-400",
+      "expectedHex": "#9E9E9E",
+      "expectedRgb": {
+        "r": 158,
+        "g": 158,
+        "b": 158
+      },
+      "computedRgb": {
+        "r": 158,
+        "g": 158,
+        "b": 158
+      },
+      "computed": "rgb(158, 158, 158)",
+      "maxChannelDelta": 0,
+      "status": "pass",
+      "source": "colors-neutrals.html"
+    },
+    {
+      "token": "gray-500",
+      "expectedHex": "#757575",
+      "expectedRgb": {
+        "r": 117,
+        "g": 117,
+        "b": 117
+      },
+      "computedRgb": {
+        "r": 117,
+        "g": 117,
+        "b": 117
+      },
+      "computed": "rgb(117, 117, 117)",
+      "maxChannelDelta": 0,
+      "status": "pass",
+      "source": "colors-neutrals.html"
+    },
+    {
+      "token": "gray-600",
+      "expectedHex": "#616161",
+      "expectedRgb": {
+        "r": 97,
+        "g": 97,
+        "b": 97
+      },
+      "computedRgb": {
+        "r": 97,
+        "g": 97,
+        "b": 97
+      },
+      "computed": "rgb(97, 97, 97)",
+      "maxChannelDelta": 0,
+      "status": "pass",
+      "source": "colors-neutrals.html"
+    },
+    {
+      "token": "gray-700",
+      "expectedHex": "#424242",
+      "expectedRgb": {
+        "r": 66,
+        "g": 66,
+        "b": 66
+      },
+      "computedRgb": {
+        "r": 66,
+        "g": 66,
+        "b": 66
+      },
+      "computed": "rgb(66, 66, 66)",
+      "maxChannelDelta": 0,
+      "status": "pass",
+      "source": "colors-neutrals.html"
+    },
+    {
+      "token": "gray-900",
+      "expectedHex": "#212121",
+      "expectedRgb": {
+        "r": 33,
+        "g": 33,
+        "b": 33
+      },
+      "computedRgb": {
+        "r": 33,
+        "g": 33,
+        "b": 33
+      },
+      "computed": "rgb(33, 33, 33)",
+      "maxChannelDelta": 0,
+      "status": "pass",
+      "source": "colors-neutrals.html"
+    },
+    {
+      "token": "gray-950",
+      "expectedHex": "#121417",
+      "expectedRgb": {
+        "r": 18,
+        "g": 20,
+        "b": 23
+      },
+      "computedRgb": {
+        "r": 18,
+        "g": 20,
+        "b": 23
+      },
+      "computed": "rgb(18, 20, 23)",
+      "maxChannelDelta": 0,
+      "status": "pass",
+      "source": "colors-neutrals.html"
+    },
+    {
+      "token": "success",
+      "expectedHex": "#2E7D32",
+      "expectedRgb": {
+        "r": 46,
+        "g": 125,
+        "b": 50
+      },
+      "computedRgb": {
+        "r": 47,
+        "g": 127,
+        "b": 51
+      },
+      "computed": "rgb(47, 127, 51)",
+      "maxChannelDelta": 2,
+      "status": "pass",
+      "source": "colors-semantic.html"
+    },
+    {
+      "token": "warning",
+      "expectedHex": "#F9A825",
+      "expectedRgb": {
+        "r": 249,
+        "g": 168,
+        "b": 37
+      },
+      "computedRgb": {
+        "r": 249,
+        "g": 168,
+        "b": 36
+      },
+      "computed": "rgb(249, 168, 36)",
+      "maxChannelDelta": 1,
+      "status": "pass",
+      "source": "colors-semantic.html"
+    },
+    {
+      "token": "danger",
+      "expectedHex": "#C62828",
+      "expectedRgb": {
+        "r": 198,
+        "g": 40,
+        "b": 40
+      },
+      "computedRgb": {
+        "r": 199,
+        "g": 41,
+        "b": 41
+      },
+      "computed": "rgb(199, 41, 41)",
+      "maxChannelDelta": 1,
+      "status": "pass",
+      "source": "colors-semantic.html"
+    },
+    {
+      "token": "info",
+      "expectedHex": "#0288D1",
+      "expectedRgb": {
+        "r": 2,
+        "g": 136,
+        "b": 209
+      },
+      "computedRgb": {
+        "r": 2,
+        "g": 135,
+        "b": 207
+      },
+      "computed": "rgb(2, 135, 207)",
+      "maxChannelDelta": 2,
+      "status": "pass",
+      "source": "colors-semantic.html"
+    },
+    {
+      "token": "success-bg",
+      "expectedHex": "#E8F5E9",
+      "expectedRgb": {
+        "r": 232,
+        "g": 245,
+        "b": 233
+      },
+      "computedRgb": {
+        "r": 234,
+        "g": 246,
+        "b": 235
+      },
+      "computed": "rgb(234, 246, 235)",
+      "maxChannelDelta": 2,
+      "status": "pass",
+      "source": "colors-semantic.html"
+    },
+    {
+      "token": "warning-bg",
+      "expectedHex": "#FFF8E1",
+      "expectedRgb": {
+        "r": 255,
+        "g": 248,
+        "b": 225
+      },
+      "computedRgb": {
+        "r": 255,
+        "g": 248,
+        "b": 224
+      },
+      "computed": "rgb(255, 248, 224)",
+      "maxChannelDelta": 1,
+      "status": "pass",
+      "source": "colors-semantic.html"
+    },
+    {
+      "token": "danger-bg",
+      "expectedHex": "#FFEBEE",
+      "expectedRgb": {
+        "r": 255,
+        "g": 235,
+        "b": 238
+      },
+      "computedRgb": {
+        "r": 255,
+        "g": 235,
+        "b": 238
+      },
+      "computed": "rgb(255, 235, 238)",
+      "maxChannelDelta": 0,
+      "status": "pass",
+      "source": "colors-semantic.html"
+    },
+    {
+      "token": "info-bg",
+      "expectedHex": "#E1F5FE",
+      "expectedRgb": {
+        "r": 225,
+        "g": 245,
+        "b": 254
+      },
+      "computedRgb": {
+        "r": 225,
+        "g": 245,
+        "b": 254
+      },
+      "computed": "rgb(225, 245, 254)",
+      "maxChannelDelta": 0,
+      "status": "pass",
+      "source": "colors-semantic.html"
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+import { Swatch } from "@/components/docs/Swatch";
+import { TokenTable } from "@/components/docs/TokenTable";
+
+export const metadata = {
+  title: "Design Tokens — DGC MiniApp Design System",
+  description:
+    "Foundations: color, type, space, radius, and shadow tokens for the DGC Cambodia Khmer-first design system.",
+};
+
+# Design Tokens
+
+Foundations of the **DGC MiniApp Design System**. Every token here ships in the
+single registry item `dgc-theme` and is consumed verbatim by every downstream
+component (R3.5).
+
+## Install
+
+```bash
+npx shadcn@latest add http://registry.016910804.xyz/r/dgc-theme.json
+```
+
+One command rewrites your consumer app's `src/app/globals.css` with the full
+DGC token set — color scale, semantic aliases, type scale, spacing, radii,
+shadows, and the `:lang(km)` Khmer font cascade.
+
+## D1 callout — `--accent` is now `--brand`
+
+The legacy DGC palette exported `--accent` as the CTA color. The shadcn/Tailwind
+v4 convention reserves `--accent` for a muted hover/selection color, so we
+renamed the Cambodia-blue CTA token to `--brand`. Use `bg-brand`,
+`text-brand-foreground`, `hover:bg-brand-hover`, and `active:bg-brand-press`
+for every primary action button.
+
+## Primary palette
+
+Cambodia blues. `--blue-900` (`#0D47A1`) is the DGC brand anchor and the default
+shadcn `--primary`. The `--brand` alias resolves to `--blue-900`.
+
+<TokenTable
+  title="Primary palette"
+  caption="--blue-050 through --blue-950. --blue-900 → --brand → --primary."
+  tokens={[
+    { token: "blue-050", hslTriplet: "212 62% 96%", hex: "#EEF4FB" },
+    { token: "blue-100", hslTriplet: "205 87% 94%", hex: "#E3F2FD" },
+    { token: "blue-400", hslTriplet: "207 90% 61%", hex: "#42A5F5" },
+    { token: "blue-500", hslTriplet: "207 90% 54%", hex: "#2196F3" },
+    { token: "blue-600", hslTriplet: "208 79% 51%", hex: "#1E88E5" },
+    { token: "blue-700", hslTriplet: "212 80% 42%", hex: "#1565C0" },
+    { token: "blue-800", hslTriplet: "220 71% 40%", hex: "#1E4FB0" },
+    {
+      token: "blue-900",
+      hslTriplet: "216 85% 34%",
+      hex: "#0D47A1",
+      shadcnAlias: "primary / brand",
+    },
+    { token: "blue-950", hslTriplet: "220 83% 23%", hex: "#0A2A6B" },
+  ]}
+/>
+
+## Neutrals
+
+Greyscale. `--gray-050` is `--background`; `--gray-900` is `--foreground`.
+
+<TokenTable
+  title="Neutrals"
+  caption="White + gray-050..gray-950."
+  tokens={[
+    {
+      token: "white",
+      hslTriplet: "0 0% 100%",
+      hex: "#FFFFFF",
+      shadcnAlias: "card / popover",
+    },
+    {
+      token: "gray-050",
+      hslTriplet: "216 33% 97%",
+      hex: "#F5F7FA",
+      shadcnAlias: "background",
+    },
+    {
+      token: "gray-100",
+      hslTriplet: "0 0% 93%",
+      hex: "#EEEEEE",
+      shadcnAlias: "muted / secondary",
+    },
+    {
+      token: "gray-200",
+      hslTriplet: "0 0% 88%",
+      hex: "#E0E0E0",
+      shadcnAlias: "border / input",
+    },
+    { token: "gray-300", hslTriplet: "0 0% 74%", hex: "#BDBDBD" },
+    { token: "gray-400", hslTriplet: "0 0% 62%", hex: "#9E9E9E" },
+    { token: "gray-500", hslTriplet: "0 0% 46%", hex: "#757575" },
+    {
+      token: "gray-600",
+      hslTriplet: "0 0% 38%",
+      hex: "#616161",
+      shadcnAlias: "muted-foreground",
+    },
+    { token: "gray-700", hslTriplet: "0 0% 26%", hex: "#424242" },
+    {
+      token: "gray-900",
+      hslTriplet: "0 0% 13%",
+      hex: "#212121",
+      shadcnAlias: "foreground",
+    },
+    { token: "gray-950", hslTriplet: "216 12% 8%", hex: "#121417" },
+  ]}
+/>
+
+## Semantic palette
+
+Status colors and tinted backgrounds for success / warning / danger / info.
+Dark variants are pre-computed as HSL triplets (D2).
+
+<TokenTable
+  title="Semantic palette"
+  caption="Status + -bg pair for each role."
+  columnsClassName="grid-cols-2 sm:grid-cols-4"
+  tokens={[
+    {
+      token: "success",
+      hslTriplet: "123 46% 34%",
+      hex: "#2E7D32",
+      shadcnAlias: "green-700",
+    },
+    {
+      token: "success-bg",
+      hslTriplet: "125 39% 94%",
+      hex: "#E8F5E9",
+      shadcnAlias: "green-100",
+    },
+    {
+      token: "warning",
+      hslTriplet: "37 95% 56%",
+      hex: "#F9A825",
+      shadcnAlias: "amber-700",
+    },
+    {
+      token: "warning-bg",
+      hslTriplet: "46 100% 94%",
+      hex: "#FFF8E1",
+      shadcnAlias: "amber-100",
+    },
+    {
+      token: "danger",
+      hslTriplet: "0 66% 47%",
+      hex: "#C62828",
+      shadcnAlias: "destructive / red-700",
+    },
+    {
+      token: "danger-bg",
+      hslTriplet: "351 100% 96%",
+      hex: "#FFEBEE",
+      shadcnAlias: "red-100",
+    },
+    {
+      token: "info",
+      hslTriplet: "201 98% 41%",
+      hex: "#0288D1",
+      shadcnAlias: "info-600",
+    },
+    {
+      token: "info-bg",
+      hslTriplet: "199 94% 94%",
+      hex: "#E1F5FE",
+      shadcnAlias: "info-100",
+    },
+  ]}
+/>
+
+## Type scale
+
+Latin specimen (Inter) and Khmer specimen (Noto Sans Khmer).
+
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Size</th>
+      <th>Latin</th>
+      <th>Khmer (lang=&quot;km&quot;)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {[
+      { token: "text-xs", size: "0.75rem" },
+      { token: "text-sm", size: "0.875rem" },
+      { token: "text-base", size: "1rem" },
+      { token: "text-lg", size: "1.125rem" },
+      { token: "text-xl", size: "1.25rem" },
+      { token: "text-2xl", size: "1.5rem" },
+      { token: "text-3xl", size: "1.875rem" },
+      { token: "text-4xl", size: "2.25rem" },
+    ].map((t) => (
+      <tr key={t.token} data-token={t.token}>
+        <td><code>--{t.token}</code></td>
+        <td><code>{t.size}</code></td>
+        <td style={{ fontSize: `var(--${t.token})` }}>Aa Bb Cc 123</td>
+        <td lang="km" style={{ fontSize: `var(--${t.token})` }}>
+          កម្ពុជា អក្សរខ្មែរ
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+### Khmer cascade (R3.3)
+
+Any element marked `lang="km"` picks up the Khmer font stack
+`Noto Sans Khmer → Kantumruy Pro → Battambang` with `line-height: 1.6`.
+
+**Important (Pitfall 8):** Set `<html lang="en">` by default and annotate
+Khmer passages with `lang="km"` — do NOT set `<html lang="km">` because it
+forces the Khmer stack on Latin text. Block-level example:
+
+<p lang="km">
+  នេះគឺជាអក្សរខ្មែរដែលកំពុងបង្ហាញដោយប្រើពុម្ពអក្សរ Noto Sans Khmer។
+</p>
+
+## Spacing
+
+4px base scale, `--space-1` (4px) through `--space-8` (40px).
+
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Value</th>
+      <th>Preview</th>
+    </tr>
+  </thead>
+  <tbody>
+    {[
+      { token: "space-1", size: "4px" },
+      { token: "space-2", size: "8px" },
+      { token: "space-3", size: "12px" },
+      { token: "space-4", size: "16px" },
+      { token: "space-5", size: "20px" },
+      { token: "space-6", size: "24px" },
+      { token: "space-7", size: "32px" },
+      { token: "space-8", size: "40px" },
+    ].map((s) => (
+      <tr key={s.token} data-token={s.token}>
+        <td><code>--{s.token}</code></td>
+        <td><code>{s.size}</code></td>
+        <td>
+          <div
+            aria-hidden="true"
+            className="h-4 rounded-sm bg-brand"
+            style={{ width: `var(--${s.token})` }}
+          />
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+## Radii
+
+`--radius` = 0.75rem (shadcn anchor). Derived shadcn radii `--radius-sm/md/lg`
+compute off `--radius`.
+
+<div className="my-4 flex flex-wrap gap-5 rounded-md border border-border bg-card p-5 shadow-[var(--shadow-1)]">
+  {[
+    { token: "radius-xs", size: "4px" },
+    { token: "radius-sm", size: "8px" },
+    { token: "radius-md", size: "12px" },
+    { token: "radius-lg", size: "16px" },
+    { token: "radius-pill", size: "999px" },
+  ].map((r) => (
+    <figure
+      key={r.token}
+      data-token={r.token}
+      className="flex flex-col items-center gap-2"
+    >
+      <div
+        className="h-16 w-16 border border-border/60 bg-brand"
+        style={{ borderRadius: `var(--${r.token})` }}
+      />
+      <figcaption className="font-mono text-[11px] text-muted-foreground">
+        --{r.token} · {r.size}
+      </figcaption>
+    </figure>
+  ))}
+</div>
+
+## Shadows / Elevation
+
+`--shadow-0` through `--shadow-3`, plus `--shadow-focus` (uses `--ring` at
+40% alpha).
+
+<div className="my-4 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
+  {[
+    { token: "shadow-0", label: "No elevation" },
+    { token: "shadow-1", label: "Card resting" },
+    { token: "shadow-2", label: "Menus / popovers" },
+    { token: "shadow-3", label: "Modals / overlays" },
+    { token: "shadow-focus", label: "Focus ring" },
+  ].map((sh) => (
+    <figure
+      key={sh.token}
+      data-token={sh.token}
+      className="flex flex-col gap-3 rounded-md border border-border bg-card p-5"
+      style={{ boxShadow: `var(--${sh.token})` }}
+    >
+      <figcaption className="flex flex-col gap-0.5">
+        <span className="font-mono text-[11px] font-medium text-foreground">
+          --{sh.token}
+        </span>
+        <span className="text-xs text-muted-foreground">{sh.label}</span>
+      </figcaption>
+    </figure>
+  ))}
+</div>
+
+## Dark mode
+
+Toggle by adding class `dark` on `<html>`:
+
+```html
+<html lang="en" class="dark">
+```
+
+All semantic aliases (`--background`, `--foreground`, `--card`, `--muted`,
+`--brand`, `--success`, etc.) flip automatically via the `.dark { ... }` block
+in `theme.css`. There is **no** `[data-theme="dark"]` selector anywhere
+(Pitfall 5).
+
+## Downstream usage (R3.5)
+
+Every registry component declares `dgc-theme` as a registry dependency so the
+shadcn CLI installs tokens transitively on first component install:
+
+```jsonc
+{
+  "name": "hello",
+  "type": "registry:ui",
+  "registryDependencies": ["dgc-theme"]
+}
+```
+
+This is the Phase 2 exit contract — no component ships its own colors.
