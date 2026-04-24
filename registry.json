@@ -218,6 +218,22 @@
         }
       ],
       "cssVars": {}
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Radix Switch bundle — 40×24 track, 18×18 thumb with 2px/20px translate, --brand track when checked, --gray-300 unchecked, --shadow-focus ring, --radius-pill.",
+      "dependencies": ["@radix-ui/react-switch"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/switch/switch.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/switch.tsx"
+        }
+      ],
+      "cssVars": {}
     }
   ]
 }

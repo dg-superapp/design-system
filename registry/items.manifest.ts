@@ -233,4 +233,22 @@ export const items: ManifestEntry[] = [
       { kind: 'boolean', name: 'disabled', default: false },
     ] as const,
   },
+  {
+    name: 'switch',
+    title: 'Switch',
+    docsSlug: 'switch',
+    registryUrl: itemUrl('switch'),
+    description:
+      'Radix Switch — 40×24 track, 18×18 thumb, --brand when checked, --gray-300 unchecked.',
+    controls: [
+      { kind: 'boolean', name: 'checked', default: false },
+      { kind: 'boolean', name: 'disabled', default: false },
+      {
+        kind: 'text',
+        name: 'label',
+        default: 'ការជូនដំណឹង',
+        placeholder: 'Switch label',
+      },
+    ] as const,
+  },
 ];
