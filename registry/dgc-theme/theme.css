@@ -202,6 +202,10 @@
   --shadow-3: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.08);
   --shadow-focus: 0 0 0 3px hsl(var(--ring) / 0.4);
 
+  /* ──── Disabled state (UI-SPEC §2.1 — Phase 3 Wave 0) ──── */
+  --bg-disabled: var(--gray-200);
+  --fg-on-disabled: var(--gray-500);
+
   /* ──── Motion ──── */
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --dur-fast: 120ms;
@@ -262,6 +266,10 @@
   --sidebar-accent-foreground: 217 39% 94%;
   --sidebar-border: 222 36% 22%;
   --sidebar-ring: 207 90% 61%;
+
+  /* Disabled state (dark) — UI-SPEC §2.1 */
+  --bg-disabled: 222 36% 22%;
+  --fg-on-disabled: 220 18% 60%;
 }
 
 @layer base {

@@ -198,6 +198,42 @@ try {
   } else {
     log('[SKIP] shadcn add hello — requires prod dgc-theme to be live (post-merge). Set SMOKE_WITH_HELLO=1 to run.');
   }
+
+  // 9. shadcn add primitives — OPTIONAL, opt-in via SMOKE_WITH_PRIMITIVES=1 (D-19).
+  //
+  // Phase 3 extension. Walks every entry from registry/items.manifest.ts,
+  // invokes `shadcn add` for each `/r/<name>.json`, then re-runs `pnpm build`
+  // against a scratch page that imports each primitive. Phase exit (3-17)
+  // blocks until this is green.
+  //
+  // Wave 0: manifest is empty, so this is a no-op that proves the branch
+  // compiles and scripts stay stable while primitive plans 01–14 are added.
+  if (process.env.SMOKE_WITH_PRIMITIVES === '1') {
+    const manifestPath = join(process.cwd(), 'registry/items.manifest.ts');
+    if (!existsSync(manifestPath)) {
+      die(`items.manifest.ts not found at ${manifestPath} — run Wave 0 first`);
+    }
+    const manifestSrc = readFileSync(manifestPath, 'utf8');
+    // Extract the `name:` fields from the manifest entries. Tolerant regex —
+    // Wave 0 manifest is `items: ManifestEntry[] = []`, so matches = 0.
+    const names = [...manifestSrc.matchAll(/name:\s*["'`]([^"'`]+)["'`]/g)].map((m) => m[1]);
+    if (names.length === 0) {
+      log('[SKIP] SMOKE_WITH_PRIMITIVES=1 — manifest is empty (Wave 0). Plans 3-01..3-14 will populate it.');
+    } else {
+      log(`[SMOKE_WITH_PRIMITIVES] installing ${names.length} primitives: ${names.join(', ')}`);
+      const base = (REG.match(/^https?:\/\/[^/]+/) || [''])[0] || 'http://localhost:3000';
+      for (const name of names) {
+        const url = `${base}/r/${name}.json`;
+        const rc = run('pnpm', ['dlx', 'shadcn@latest', 'add', url, '--yes', '--overwrite'], {
+          cwd: consumer,
+        });
+        if (rc !== 0) die(`shadcn add ${name} failed (${url})`);
+      }
+      const rebuildRc = run('pnpm', ['build'], { cwd: consumer });
+      if (rebuildRc !== 0) die('consumer rebuild after primitive install failed');
+      log(`[PASS] ${names.length} primitives installed and consumer rebuilt`);
+    }
+  }
 } catch (e) {
   failed = true;
   console.error('[smoke] unexpected error:', e);
