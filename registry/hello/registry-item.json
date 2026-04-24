@@ -5,7 +5,7 @@
   "title": "Hello World (pipeline placeholder)",
   "description": "Phase 1 placeholder — validates the shadcn build + GH Pages deploy pipeline. Phase 2 migrates it to dgc-theme tokens (bg-brand) as proof-of-concept for R3.5.",
   "dependencies": [],
-  "registryDependencies": ["dgc-theme"],
+  "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
   "files": [
     {
       "path": "registry/hello/hello.tsx",
