@@ -124,4 +124,29 @@ export const items: ManifestEntry[] = [
       },
     ] as const,
   },
+  {
+    name: 'input',
+    title: 'Input',
+    docsSlug: 'input',
+    registryUrl: itemUrl('input'),
+    description:
+      '48px text/date input with state matrix + Khmer date placeholder.',
+    controls: [
+      {
+        kind: 'variant',
+        name: 'type',
+        options: ['text', 'email', 'date'] as const,
+        default: 'text',
+      },
+      {
+        kind: 'text',
+        name: 'placeholder',
+        default: 'បញ្ចូលអត្ថបទ',
+        placeholder: 'Input placeholder',
+      },
+      { kind: 'boolean', name: 'invalid', default: false },
+      { kind: 'boolean', name: 'disabled', default: false },
+      { kind: 'boolean', name: 'required', default: false },
+    ] as const,
+  },
 ];

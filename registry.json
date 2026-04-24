@@ -138,6 +138,22 @@
         }
       ],
       "cssVars": {}
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "48px text/date input with DGC tokens, state matrix (default/hover/focus/error/disabled), Khmer date placeholder, and WCAG AA disabled styling.",
+      "dependencies": [],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/input/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        }
+      ],
+      "cssVars": {}
     }
   ]
 }
