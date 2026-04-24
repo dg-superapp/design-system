@@ -251,4 +251,22 @@ export const items: ManifestEntry[] = [
       },
     ] as const,
   },
+  {
+    name: 'label',
+    title: 'Label',
+    docsSlug: 'label',
+    registryUrl: itemUrl('label'),
+    description:
+      'Radix Label — 14px medium, htmlFor pairing, optional required asterisk.',
+    controls: [
+      {
+        kind: 'text',
+        name: 'text',
+        default: 'អាស័យដ្ឋានអ៊ីមែល',
+        placeholder: 'Label text',
+      },
+      { kind: 'boolean', name: 'required', default: false },
+      { kind: 'boolean', name: 'disabled', default: false },
+    ] as const,
+  },
 ];

@@ -234,6 +234,22 @@
         }
       ],
       "cssVars": {}
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Radix Label — 14px medium, --foreground, htmlFor pairing, optional aria-hidden --red-600 asterisk when required=true, peer-disabled cascade.",
+      "dependencies": ["@radix-ui/react-label"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/label/label.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/label.tsx"
+        }
+      ],
+      "cssVars": {}
     }
   ]
 }
