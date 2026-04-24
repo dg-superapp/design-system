@@ -314,4 +314,21 @@ export const items: ManifestEntry[] = [
       },
     ] as const,
   },
+  {
+    name: 'tabs',
+    title: 'Tabs',
+    docsSlug: 'tabs',
+    registryUrl: itemUrl('tabs'),
+    description:
+      'Radix Tabs — underline (default) + pill variants, arrow-key cycling, controlled/uncontrolled.',
+    controls: [
+      {
+        kind: 'variant',
+        name: 'variant',
+        options: ['underline', 'pill'] as const,
+        default: 'underline',
+      },
+      { kind: 'boolean', name: 'withBadges', default: false },
+    ] as const,
+  },
 ];

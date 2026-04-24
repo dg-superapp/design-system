@@ -282,6 +282,22 @@
         }
       ],
       "cssVars": {}
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Radix Tabs bundle with CVA variants — underline (default, 44px triggers, 2px --brand bottom bar) + pill (36px, --card bg + --shadow-1 active). Controlled + uncontrolled. Arrow/Home/End keyboard nav. Exports Tabs/TabsList/TabsTrigger/TabsContent.",
+      "dependencies": ["@radix-ui/react-tabs", "class-variance-authority"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/tabs/tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tabs.tsx"
+        }
+      ],
+      "cssVars": {}
     }
   ]
 }
