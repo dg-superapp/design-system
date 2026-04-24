@@ -175,4 +175,22 @@ export const items: ManifestEntry[] = [
       { kind: 'boolean', name: 'disabled', default: false },
     ] as const,
   },
+  {
+    name: 'select',
+    title: 'Select',
+    docsSlug: 'select',
+    registryUrl: itemUrl('select'),
+    description:
+      'Radix Select bundle — 48px trigger with Input-parity state matrix + selected --blue-050 item.',
+    controls: [
+      {
+        kind: 'text',
+        name: 'placeholder',
+        default: 'ជ្រើសរើសភាសា',
+        placeholder: 'Select placeholder',
+      },
+      { kind: 'boolean', name: 'invalid', default: false },
+      { kind: 'boolean', name: 'disabled', default: false },
+    ] as const,
+  },
 ];

@@ -170,6 +170,22 @@
         }
       ],
       "cssVars": {}
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Radix Select bundle — 48px trigger with Input-parity state matrix, dropdown surface with --card bg + --shadow-2, and selected item --blue-050 + --brand. All sub-parts (Trigger/Content/Item/Label/Separator/ScrollUp/ScrollDown) exported from one file.",
+      "dependencies": ["@radix-ui/react-select", "lucide-react"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/select/select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/select.tsx"
+        }
+      ],
+      "cssVars": {}
     }
   ]
 }
