@@ -78,10 +78,19 @@ jobs:
           PLAYWRIGHT_BASE_URL: http://localhost:3030
         run: pnpm test:a11y
 
+      - name: Start registry server for smoke (:3000)
+        run: |
+          nohup npx --yes serve out -l 3000 > /tmp/serve.log 2>&1 &
+          echo $! > /tmp/serve.pid
+
       - name: Consumer smoke — all 14 primitives (3-17, R5.1)
         env:
           SMOKE_WITH_PRIMITIVES: '1'
         run: pnpm smoke:consumer
+
+      - name: Stop registry server
+        if: always()
+        run: kill $(cat /tmp/serve.pid) 2>/dev/null || true
 
       - name: Upload Pages artifact
         if: github.event_name == 'push'
