@@ -1,0 +1,75 @@
+import { CopyInstallButton } from "@/components/docs/CopyInstallButton";
+
+export const metadata = {
+  title: "Label — DGC MiniApp Design System",
+  description:
+    "Radix Label — 14 px medium, htmlFor pairing, optional required asterisk.",
+};
+
+# Label
+
+Form field label built on `@radix-ui/react-label`. Pairs with any control via `htmlFor`. Optional required asterisk renders in `--red-600` (the only `--red-600` usage in Phase 3).
+
+## Installation
+
+<CopyInstallButton name="label" />
+
+## Props
+
+| Prop       | Type      | Default | Description                                                         |
+| ---------- | --------- | ------- | ------------------------------------------------------------------- |
+| `htmlFor`  | `string`  | —       | The `id` of the associated control. Required for a11y pairing.      |
+| `required` | `boolean` | `false` | Appends a `--red-600` asterisk with `aria-hidden="true"`.           |
+| `disabled` | `boolean` | `false` | Applies `--muted-foreground` to match the associated disabled input.|
+
+## Variants
+
+Label has two visual states and an optional required decoration.
+
+| State    | Foreground            | Asterisk     |
+| -------- | --------------------- | ------------ |
+| Default  | `--foreground`        | hidden       |
+| Required | `--foreground`        | `--red-600`  |
+| Disabled | `--muted-foreground`  | hidden       |
+
+## Usage
+
+### Khmer / ភាសាខ្មែរ
+
+```tsx
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+
+export function EmailFieldKm() {
+  return (
+    <div className="flex flex-col gap-2">
+      <Label htmlFor="email-km" required>
+        អាស័យដ្ឋានអ៊ីមែល
+      </Label>
+      <Input id="email-km" type="email" required placeholder="name@example.com" />
+    </div>
+  );
+}
+```
+
+### English
+
+```tsx
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+
+export function EmailFieldEn() {
+  return (
+    <div className="flex flex-col gap-2">
+      <Label htmlFor="email-en" required>
+        Email address
+      </Label>
+      <Input id="email-en" type="email" required placeholder="name@example.com" />
+    </div>
+  );
+}
+```
+
+## Playground
+
+See the [label playground](/preview/label/) for required, optional, and disabled states plus Khmer line-height behaviour.

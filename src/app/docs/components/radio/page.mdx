@@ -1,0 +1,92 @@
+import { CopyInstallButton } from "@/components/docs/CopyInstallButton";
+
+export const metadata = {
+  title: "Radio — DGC MiniApp Design System",
+  description:
+    "Radix RadioGroup — 20×20 circle with --brand border and --brand dot when selected.",
+};
+
+# Radio
+
+Single-select from a group of options. Built on `@radix-ui/react-radio-group`. Each circle is 20×20 px; the selected option shows a 10×10 px `--brand` inner dot over a white background.
+
+## Installation
+
+<CopyInstallButton name="radio" />
+
+## Props
+
+### RadioGroup
+
+| Prop           | Type                      | Default | Description                                     |
+| -------------- | ------------------------- | ------- | ----------------------------------------------- |
+| `value`        | `string`                  | —       | Controlled selected value.                      |
+| `defaultValue` | `string`                  | —       | Uncontrolled initial value.                     |
+| `onValueChange`| `(value: string) => void` | —       | Fires on selection change.                      |
+| `disabled`     | `boolean`                 | `false` | Disables the entire group.                      |
+| `name`         | `string`                  | —       | Native form name for grouped submission.        |
+
+### RadioGroupItem
+
+| Prop       | Type      | Default | Description                                           |
+| ---------- | --------- | ------- | ----------------------------------------------------- |
+| `value`    | `string`  | —       | Unique value emitted when this item is selected.      |
+| `disabled` | `boolean` | `false` | Disables this option while leaving the group active.  |
+
+## Variants
+
+| State       | Background | Border        | Indicator           |
+| ----------- | ---------- | ------------- | ------------------- |
+| Unselected  | `--card`   | `--gray-300`  | none                |
+| Selected    | `--card`   | `--brand`     | 10×10 px `--brand` dot |
+| Disabled    | `--gray-100` | `--gray-200` | none or gray dot    |
+
+## Usage
+
+### Khmer / ភាសាខ្មែរ
+
+```tsx
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio";
+import { Label } from "@/components/ui/label";
+
+export function LanguagePickerKm() {
+  return (
+    <RadioGroup defaultValue="km" name="language">
+      <div className="flex items-center gap-2">
+        <RadioGroupItem id="lang-km" value="km" />
+        <Label htmlFor="lang-km">ភាសាខ្មែរ</Label>
+      </div>
+      <div className="flex items-center gap-2">
+        <RadioGroupItem id="lang-en" value="en" />
+        <Label htmlFor="lang-en">ភាសាអង់គ្លេស</Label>
+      </div>
+    </RadioGroup>
+  );
+}
+```
+
+### English
+
+```tsx
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio";
+import { Label } from "@/components/ui/label";
+
+export function LanguagePickerEn() {
+  return (
+    <RadioGroup defaultValue="km" name="language">
+      <div className="flex items-center gap-2">
+        <RadioGroupItem id="lang-km-en" value="km" />
+        <Label htmlFor="lang-km-en">Khmer</Label>
+      </div>
+      <div className="flex items-center gap-2">
+        <RadioGroupItem id="lang-en-en" value="en" />
+        <Label htmlFor="lang-en-en">English</Label>
+      </div>
+    </RadioGroup>
+  );
+}
+```
+
+## Playground
+
+See the [radio playground](/preview/radio/) for arrow-key cycling and the selected-dot indicator.

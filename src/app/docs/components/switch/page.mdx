@@ -1,0 +1,74 @@
+import { CopyInstallButton } from "@/components/docs/CopyInstallButton";
+
+export const metadata = {
+  title: "Switch — DGC MiniApp Design System",
+  description:
+    "Radix Switch — 40×24 track, 18 px thumb, --brand on, --gray-300 off.",
+};
+
+# Switch
+
+On/off toggle built on `@radix-ui/react-switch`. The track is 40×24 px and the thumb is 18 px. The track fills with `--brand` when checked and `--gray-300` when off. Thumb position animates at `--dur-fast`.
+
+## Installation
+
+<CopyInstallButton name="switch" />
+
+## Props
+
+| Prop              | Type                       | Default | Description                                           |
+| ----------------- | -------------------------- | ------- | ----------------------------------------------------- |
+| `checked`         | `boolean`                  | —       | Controlled checked state.                             |
+| `defaultChecked`  | `boolean`                  | `false` | Uncontrolled initial state.                           |
+| `onCheckedChange` | `(checked: boolean) => void` | —     | Fires on toggle.                                      |
+| `disabled`        | `boolean`                  | `false` | Applies `--gray-200/--gray-300` track + cursor.       |
+| `name`            | `string`                   | —       | Native form name for checkbox-style submission.       |
+
+## Variants
+
+Switch has no CVA variants — only state flips between on/off.
+
+| State        | Track         | Thumb |
+| ------------ | ------------- | ----- |
+| Off          | `--gray-300`  | white |
+| On           | `--brand`     | white |
+| Disabled off | `--gray-200`  | white |
+| Disabled on  | `--gray-300`  | white |
+
+## Usage
+
+### Khmer / ភាសាខ្មែរ
+
+```tsx
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
+
+export function NotificationToggleKm() {
+  return (
+    <div className="flex items-center gap-3">
+      <Switch id="notifications" defaultChecked />
+      <Label htmlFor="notifications">ការជូនដំណឹង</Label>
+    </div>
+  );
+}
+```
+
+### English
+
+```tsx
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
+
+export function NotificationToggleEn() {
+  return (
+    <div className="flex items-center gap-3">
+      <Switch id="notifications" defaultChecked />
+      <Label htmlFor="notifications">Notifications</Label>
+    </div>
+  );
+}
+```
+
+## Playground
+
+See the [switch playground](/preview/switch/) for on/off animation and disabled states.
