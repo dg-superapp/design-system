@@ -4,6 +4,7 @@ import { InputPreview } from './input';
 import { TextareaPreview } from './textarea';
 import { SelectPreview } from './select';
 import { CheckboxPreview } from './checkbox';
+import { RadioPreview } from './radio';
 
 /**
  * Preview renderer registry — Phase 3 Plan 3-01.
@@ -28,4 +29,5 @@ export const previewRenderers: Record<string, PreviewRenderer> = {
   textarea: TextareaPreview,
   select: SelectPreview,
   checkbox: CheckboxPreview,
+  radio: RadioPreview,
 };

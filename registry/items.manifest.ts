@@ -216,4 +216,21 @@ export const items: ManifestEntry[] = [
       },
     ] as const,
   },
+  {
+    name: 'radio',
+    title: 'Radio',
+    docsSlug: 'radio',
+    registryUrl: itemUrl('radio'),
+    description:
+      'Radix RadioGroup — 20×20 circle with --brand border + --brand dot when selected; arrow-key cycling.',
+    controls: [
+      {
+        kind: 'variant',
+        name: 'selectedIndex',
+        options: ['0', '1', '2'] as const,
+        default: '0',
+      },
+      { kind: 'boolean', name: 'disabled', default: false },
+    ] as const,
+  },
 ];

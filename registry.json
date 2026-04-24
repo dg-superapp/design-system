@@ -202,6 +202,22 @@
         }
       ],
       "cssVars": {}
+    },
+    {
+      "name": "radio",
+      "type": "registry:ui",
+      "title": "Radio",
+      "description": "Radix RadioGroup bundle — 20×20 circle with --radius-pill corner, 1.5px --gray-300 border unselected, --brand border + 10×10 --brand dot on --card bg when selected (specimen authoritative over R4.6 --accent). Arrow-key cycling, --shadow-focus ring, WCAG-AA disabled.",
+      "dependencies": ["@radix-ui/react-radio-group"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/radio/radio.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/radio.tsx"
+        }
+      ],
+      "cssVars": {}
     }
   ]
 }
