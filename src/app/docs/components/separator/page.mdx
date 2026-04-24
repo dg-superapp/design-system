@@ -1,0 +1,71 @@
+import { CopyInstallButton } from "@/components/docs/CopyInstallButton";
+
+export const metadata = {
+  title: "Separator — DGC MiniApp Design System",
+  description:
+    "Radix Separator — 1 px var(--border) rule, horizontal or vertical, decorative by default.",
+};
+
+# Separator
+
+Thin rule built on `@radix-ui/react-separator`. Exactly 1 px, `var(--border)` colour, rendered as `border-top` (horizontal) or `border-left` (vertical). Decorative by default — when semantic, set `decorative={false}` so assistive tech announces the region break.
+
+## Installation
+
+<CopyInstallButton name="separator" />
+
+## Props
+
+| Prop          | Type                            | Default        | Description                                                     |
+| ------------- | ------------------------------- | -------------- | --------------------------------------------------------------- |
+| `orientation` | `"horizontal" \| "vertical"`    | `"horizontal"` | Axis. Horizontal spans width; vertical spans container height.  |
+| `decorative`  | `boolean`                       | `true`         | When `true`, Radix omits the separator from the a11y tree.      |
+
+## Variants
+
+Separator ships one visual treatment — `1px solid var(--border)` on every instance. Try both orientations in the [separator playground](/preview/separator/).
+
+| Orientation  | CSS                                                                    |
+| ------------ | ---------------------------------------------------------------------- |
+| `horizontal` | `width: 100%; height: 1px; border-top: 1px solid var(--border)`        |
+| `vertical`   | `height: 100%; width: 1px; border-left: 1px solid var(--border)`       |
+
+> MUST be `var(--border)` — not `border-muted`, not a hardcoded hex.
+
+## Usage
+
+### Khmer / ភាសាខ្មែរ
+
+```tsx
+import { Separator } from "@/components/ui/separator";
+
+export function SectionKm() {
+  return (
+    <div>
+      <p>ផ្នែកដំបូង</p>
+      <Separator className="my-4" />
+      <p>ផ្នែកបន្ទាប់</p>
+    </div>
+  );
+}
+```
+
+### English
+
+```tsx
+import { Separator } from "@/components/ui/separator";
+
+export function SectionEn() {
+  return (
+    <div>
+      <p>First section</p>
+      <Separator className="my-4" />
+      <p>Next section</p>
+    </div>
+  );
+}
+```
+
+## Playground
+
+See the [separator playground](/preview/separator/) for horizontal vs vertical orientation and decorative vs semantic rendering.

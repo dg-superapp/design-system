@@ -1,0 +1,60 @@
+import { CopyInstallButton } from "@/components/docs/CopyInstallButton";
+
+export const metadata = {
+  title: "Badge — DGC MiniApp Design System",
+  description:
+    "CVA Badge — 22 px pill with four tones (default, success, warning, danger) and optional 12 px icon.",
+};
+
+# Badge
+
+Non-interactive status pill. Four tones — `default`, `success`, `warning`, `danger` — paired with their semantic `*-bg` + fg tokens. Height 22 px, padding `2px 10px`, `--radius-pill`. Optional leading Lucide icon renders at 12 px inline with the label.
+
+## Installation
+
+<CopyInstallButton name="badge" />
+
+## Props
+
+| Prop       | Type                                                 | Default     | Description                                                      |
+| ---------- | ---------------------------------------------------- | ----------- | ---------------------------------------------------------------- |
+| `tone`     | `"default" \| "success" \| "warning" \| "danger"`    | `"default"` | Semantic colour pairing. Exactly four tones — no `info` variant. |
+| `asChild`  | `boolean`                                            | `false`     | Delegates rendering to a Radix `Slot` child (e.g. `<span>`).     |
+| `children` | `ReactNode`                                          | —           | Label content. Optional 12 px Lucide icon may be placed inline.  |
+
+## Variants
+
+Try every tone + icon combination in the [badge playground](/preview/badge/).
+
+| Tone      | Background     | Foreground  | Use for                       |
+| --------- | -------------- | ----------- | ----------------------------- |
+| `default` | `--muted`      | `--foreground` | Neutral metadata, counts   |
+| `success` | `--success-bg` | `--success`    | Completed, approved        |
+| `warning` | `--warning-bg` | `--warning`    | Pending, requires review   |
+| `danger`  | `--danger-bg`  | `--danger`     | Rejected, expired          |
+
+## Usage
+
+### Khmer / ភាសាខ្មែរ
+
+```tsx
+import { Badge } from "@/components/ui/badge";
+
+export function StatusKm() {
+  return <Badge tone="success">អនុម័ត</Badge>;
+}
+```
+
+### English
+
+```tsx
+import { Badge } from "@/components/ui/badge";
+
+export function StatusEn() {
+  return <Badge tone="success">Approved</Badge>;
+}
+```
+
+## Playground
+
+See the [badge playground](/preview/badge/) for all four tones, optional icon slot, and bilingual labels.

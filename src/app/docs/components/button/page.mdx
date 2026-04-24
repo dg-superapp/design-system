@@ -1,0 +1,71 @@
+import { CopyInstallButton } from "@/components/docs/CopyInstallButton";
+
+export const metadata = {
+  title: "Button — DGC MiniApp Design System",
+  description:
+    "Primary action primitive. 4 variants × 2 sizes, CVA-driven, DGC-tokened, asChild support.",
+};
+
+# Button
+
+The button primitive is the core call-to-action surface. It ships four variants (primary, secondary, ghost, ghost-danger) across two sizes, uses DGC tokens exclusively, and supports `asChild` for polymorphic rendering.
+
+## Installation
+
+<CopyInstallButton name="button" />
+
+## Props
+
+| Prop       | Type                                                 | Default     | Description                                                             |
+| ---------- | ---------------------------------------------------- | ----------- | ----------------------------------------------------------------------- |
+| `variant`  | `"primary" \| "secondary" \| "ghost" \| "ghost-danger"` | `"primary"` | Visual tone. Primary is the DGC brand fill.                             |
+| `size`     | `"default" \| "sm"`                                  | `"default"` | `default` is 48 px tall (R4.1), `sm` is 40 px.                          |
+| `disabled` | `boolean`                                            | `false`     | Applies `--bg-disabled` and `--fg-on-disabled`, never `opacity-50`.     |
+| `loading`  | `boolean`                                            | `false`     | Shows inline spinner, sets `aria-disabled="true"`, suppresses clicks.   |
+| `asChild`  | `boolean`                                            | `false`     | Delegates rendering to a Radix `Slot` child (e.g. `<Link>`).            |
+| `type`     | `"button" \| "submit" \| "reset"`                    | `"button"`  | Defaults to `button` to prevent accidental form submission.             |
+
+## Variants
+
+Open the [button playground](/preview/button/) to toggle variant, size, disabled, loading, and Khmer labels.
+
+| Variant        | Background token   | Foreground token       | Use for                     |
+| -------------- | ------------------ | ---------------------- | --------------------------- |
+| `primary`      | `--brand`          | `--brand-foreground`   | Submit, confirm, continue   |
+| `secondary`    | `--blue-050`       | `--brand`              | Alternate path, back        |
+| `ghost`        | `transparent`      | `--brand`              | Low-emphasis actions        |
+| `ghost-danger` | `transparent`      | `--danger`             | Destructive low-emphasis    |
+
+## Usage
+
+### Khmer / ភាសាខ្មែរ
+
+```tsx
+import { Button } from "@/components/ui/button";
+
+export function SubmitKm() {
+  return (
+    <Button variant="primary" type="submit">
+      បញ្ជូន
+    </Button>
+  );
+}
+```
+
+### English
+
+```tsx
+import { Button } from "@/components/ui/button";
+
+export function SubmitEn() {
+  return (
+    <Button variant="primary" type="submit">
+      Submit
+    </Button>
+  );
+}
+```
+
+## Playground
+
+See the [button playground](/preview/button/) for interactive variants, states, and Khmer rendering.

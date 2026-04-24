@@ -122,6 +122,240 @@
         }
       ],
       "cssVars": {}
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "DGC-branded button with 4 variants, 2 sizes, icon slot, and WCAG AA disabled state.",
+      "dependencies": ["class-variance-authority", "lucide-react", "@radix-ui/react-slot"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/button/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "48px text/date input with DGC tokens, state matrix (default/hover/focus/error/disabled), Khmer date placeholder, and WCAG AA disabled styling.",
+      "dependencies": [],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/input/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Min-height 88px textarea with vertical-only resize, DGC tokens, Input-parity state matrix, and Khmer-safe leading (coeng descenders render freely under --leading-loose).",
+      "dependencies": [],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/textarea/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/textarea.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Radix Select bundle — 48px trigger with Input-parity state matrix, dropdown surface with --card bg + --shadow-2, and selected item --blue-050 + --brand. All sub-parts (Trigger/Content/Item/Label/Separator/ScrollUp/ScrollDown) exported from one file.",
+      "dependencies": ["@radix-ui/react-select", "lucide-react"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/select/select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/select.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Radix Checkbox with DGC tokens — 20×20 box, --radius-xs corner, 1.5px --gray-300 border, --brand fill when checked, inline SVG check/minus glyph, --shadow-focus ring on focus-visible.",
+      "dependencies": ["@radix-ui/react-checkbox"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/checkbox/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/checkbox.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
+      "name": "radio",
+      "type": "registry:ui",
+      "title": "Radio",
+      "description": "Radix RadioGroup bundle — 20×20 circle with --radius-pill corner, 1.5px --gray-300 border unselected, --brand border + 10×10 --brand dot on --card bg when selected (specimen authoritative over R4.6 --accent). Arrow-key cycling, --shadow-focus ring, WCAG-AA disabled.",
+      "dependencies": ["@radix-ui/react-radio-group"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/radio/radio.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/radio.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Radix Switch bundle — 40×24 track, 18×18 thumb with 2px/20px translate, --brand track when checked, --gray-300 unchecked, --shadow-focus ring, --radius-pill.",
+      "dependencies": ["@radix-ui/react-switch"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/switch/switch.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/switch.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Radix Label — 14px medium, --foreground, htmlFor pairing, optional aria-hidden --red-600 asterisk when required=true, peer-disabled cascade.",
+      "dependencies": ["@radix-ui/react-label"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/label/label.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/label.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "CVA Badge primitive — 22px pill with EXACTLY 4 tones (default/success/warning/danger) via --muted/--success-bg/--warning-bg/--danger-bg token pairs, --radius-pill, --text-xs font-medium, optional 12px leading icon slot.",
+      "dependencies": ["class-variance-authority", "lucide-react"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/badge/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/badge.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Radix Tooltip bundle — --gray-900 bg, white text, --radius-sm, --shadow-2, max-w-200. Exports TooltipProvider/Tooltip/TooltipTrigger/TooltipContent/TooltipArrow.",
+      "dependencies": ["@radix-ui/react-tooltip"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/tooltip/tooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tooltip.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Radix Tabs bundle with CVA variants — underline (default, 44px triggers, 2px --brand bottom bar) + pill (36px, --card bg + --shadow-1 active). Controlled + uncontrolled. Arrow/Home/End keyboard nav. Exports Tabs/TabsList/TabsTrigger/TabsContent.",
+      "dependencies": ["@radix-ui/react-tabs", "class-variance-authority"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/tabs/tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tabs.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Radix Separator — 1px hsl(var(--border)) rule. Horizontal (h-[1px] w-full) or vertical (w-[1px] h-full) via data-orientation. decorative default true (role=none); decorative=false yields role=separator + aria-orientation.",
+      "dependencies": ["@radix-ui/react-separator"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/separator/separator.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/separator.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "ScrollArea",
+      "description": "Radix ScrollArea bundle with DGC-tokened scrollbar — 8px thumb (hsl(var(--gray-300)) → hover hsl(var(--gray-400))), pill corners, --dur-fast fade on hover via Radix type='hover'. Consumer sets height/max-height; component does not self-constrain. Exports ScrollArea (Root+Viewport+ScrollBar+Corner) and ScrollBar.",
+      "dependencies": ["@radix-ui/react-scroll-area"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/scroll-area/scroll-area.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/scroll-area.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
+      "name": "form",
+      "type": "registry:ui",
+      "title": "Form",
+      "description": "React-hook-form + Zod bundle — 7 canonical shadcn exports (Form, FormField, FormItem, FormLabel, FormControl, FormDescription, FormMessage). FormMessage uses hsl(var(--danger)) + aria-live=polite; FormControl injects aria-invalid + aria-describedby onto child Input/Select/Textarea. Junction primitive — installs Label + Input via registryDependencies cascade.",
+      "dependencies": [
+        "react-hook-form",
+        "zod",
+        "@hookform/resolvers",
+        "@radix-ui/react-slot",
+        "@radix-ui/react-label"
+      ],
+      "registryDependencies": [
+        "https://registry.016910804.xyz/r/dgc-theme.json",
+        "https://registry.016910804.xyz/r/label.json",
+        "https://registry.016910804.xyz/r/input.json"
+      ],
+      "files": [
+        {
+          "path": "registry/form/form.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/form.tsx"
+        }
+      ],
+      "cssVars": {}
     }
   ]
 }

@@ -1,0 +1,81 @@
+import { CopyInstallButton } from "@/components/docs/CopyInstallButton";
+
+export const metadata = {
+  title: "Tabs — DGC MiniApp Design System",
+  description:
+    "Radix Tabs — underline (default) and pill variants, arrow-key cycling, controlled and uncontrolled modes.",
+};
+
+# Tabs
+
+Panel switcher built on `@radix-ui/react-tabs`. Two variants ship: `underline` (default — 2 px `--brand` indicator under the active tab, 44 px touch target) and `pill` (segmented — 36 px, active tab gets `--card` fill + `--shadow-1`). Arrow keys cycle tabs, `Home`/`End` jump to first/last, and `Tab` moves focus into the active panel.
+
+## Installation
+
+<CopyInstallButton name="tabs" />
+
+## Props
+
+| Sub-part        | Key props / notes                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| `Tabs`          | `value`, `defaultValue`, `onValueChange`, `orientation`. Supports controlled and uncontrolled modes.     |
+| `TabsList`      | `variant` (`"underline" \| "pill"`, default `"underline"`). Container for triggers.                       |
+| `TabsTrigger`   | `value` (required), `disabled`. Inherits variant styling from the enclosing `TabsList`.                   |
+| `TabsContent`   | `value` (required). Focusable via `Tab` key from the active trigger.                                      |
+
+## Variants
+
+Try both variants + count badges in the [tabs playground](/preview/tabs/).
+
+| Variant     | Container                      | Active tab                        | Inactive tab                |
+| ----------- | ------------------------------ | --------------------------------- | --------------------------- |
+| `underline` | `--card` bg, 1 px border, 12 px radius | `--brand` text + 2 px `--brand` underline | `--muted-foreground` text |
+| `pill`      | `--background` bg, 1 px border, 4 px pad | `--brand` text on `--card` + `--shadow-1` | `--muted-foreground` text |
+
+### Count badge
+
+Optional numeric badge per tab. Numerals always render in `--font-latin`. Inactive: `--blue-050` bg, `--brand` text. Active: `--brand` bg, white text.
+
+## Usage
+
+### Khmer / ភាសាខ្មែរ
+
+```tsx
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+export function ProfileTabsKm() {
+  return (
+    <Tabs defaultValue="account">
+      <TabsList>
+        <TabsTrigger value="account">គណនី</TabsTrigger>
+        <TabsTrigger value="security">សុវត្ថិភាព</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">ព័ត៌មានគណនីរបស់អ្នក</TabsContent>
+      <TabsContent value="security">ការកំណត់សុវត្ថិភាព</TabsContent>
+    </Tabs>
+  );
+}
+```
+
+### English
+
+```tsx
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+export function ProfileTabsEn() {
+  return (
+    <Tabs defaultValue="account">
+      <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="security">Security</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">Your account details</TabsContent>
+      <TabsContent value="security">Security settings</TabsContent>
+    </Tabs>
+  );
+}
+```
+
+## Playground
+
+See the [tabs playground](/preview/tabs/) for underline vs pill, arrow-key navigation, disabled states, and Khmer label line-height.

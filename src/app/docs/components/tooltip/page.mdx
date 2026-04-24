@@ -1,0 +1,94 @@
+import { CopyInstallButton } from "@/components/docs/CopyInstallButton";
+
+export const metadata = {
+  title: "Tooltip — DGC MiniApp Design System",
+  description:
+    "Radix Tooltip — dark --gray-900 surface, appears on hover and focus, Escape closes.",
+};
+
+# Tooltip
+
+Auxiliary hint surface built on `@radix-ui/react-tooltip`. Background is `--gray-900` directly (a deliberate exception from the semantic `--popover` alias), foreground is white, with 8 px radius, `6px 10px` padding, and `--shadow-2`. Tooltips open on pointer hover or keyboard focus and close on `Escape`, blur, or pointer leave. They never open on touch — mobile users must be able to read the control's visible label.
+
+## Installation
+
+<CopyInstallButton name="tooltip" />
+
+## Props
+
+| Sub-part           | Key props / notes                                                                            |
+| ------------------ | -------------------------------------------------------------------------------------------- |
+| `TooltipProvider`  | `delayDuration` (default `500`), `skipDelayDuration`. Wrap the app or a subtree once.         |
+| `Tooltip`          | `open`, `defaultOpen`, `onOpenChange`. Controls open state.                                    |
+| `TooltipTrigger`   | `asChild` (recommended) so the wrapped control keeps its own focus ring.                       |
+| `TooltipContent`   | `side` (`"top" \| "right" \| "bottom" \| "left"`, default `"top"`), `sideOffset`, `align`.    |
+| `TooltipArrow`     | Optional 6×6 px caret in `--gray-900`.                                                         |
+
+## Variants
+
+Tooltip has no visual tone variants — dark surface, white text, always. Positional variants live on `side` (four edges). Try them in the [tooltip playground](/preview/tooltip/).
+
+| Aspect         | Value                                                                 |
+| -------------- | --------------------------------------------------------------------- |
+| Background     | `hsl(var(--gray-900))` — not `--popover`, not `--card`                |
+| Foreground     | white (`--brand-foreground`)                                           |
+| Border radius  | `--radius-sm` (8 px)                                                   |
+| Max-width      | 200 px                                                                 |
+| Open delay     | 500 ms                                                                 |
+| Close delay    | 100 ms                                                                 |
+
+## Usage
+
+### Khmer / ភាសាខ្មែរ
+
+```tsx
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
+
+export function HelpKm() {
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button variant="ghost">ជំនួយ</Button>
+        </TooltipTrigger>
+        <TooltipContent>ព័ត៌មានបន្ថែម</TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+}
+```
+
+### English
+
+```tsx
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
+
+export function HelpEn() {
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button variant="ghost">Help</Button>
+        </TooltipTrigger>
+        <TooltipContent>More information</TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+}
+```
+
+## Playground
+
+See the [tooltip playground](/preview/tooltip/) for each `side` value, delay behaviour, and Escape-to-close.

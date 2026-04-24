@@ -198,6 +198,71 @@ try {
   } else {
     log('[SKIP] shadcn add hello — requires prod dgc-theme to be live (post-merge). Set SMOKE_WITH_HELLO=1 to run.');
   }
+
+  // 9. shadcn add primitives — OPTIONAL, opt-in via SMOKE_WITH_PRIMITIVES=1 (D-19).
+  //
+  // Phase 3 extension. Walks every entry from registry/items.manifest.ts,
+  // invokes `shadcn add` for each `/r/<name>.json`, then re-runs `pnpm build`
+  // against a scratch page that imports each primitive. Phase exit (3-17)
+  // blocks until this is green.
+  //
+  // Wave 0: manifest is empty, so this is a no-op that proves the branch
+  // compiles and scripts stay stable while primitive plans 01–14 are added.
+  if (process.env.SMOKE_WITH_PRIMITIVES === '1') {
+    const manifestPath = join(process.cwd(), 'registry/items.manifest.ts');
+    if (!existsSync(manifestPath)) {
+      die(`items.manifest.ts not found at ${manifestPath} — run Wave 0 first`);
+    }
+    const manifestSrc = readFileSync(manifestPath, 'utf8');
+    // Extract the `name:` fields from the manifest entries. Tolerant regex —
+    // Wave 0 manifest was empty; Phase 3 exit (3-17) requires all 14.
+    // Match only top-level ManifestEntry `name:` (the first field inside each
+     // entry object). Control entries inside `controls: [...]` start with
+     // `kind:` before their `name:`, so the `\{` anchor excludes them.
+    const names = [...manifestSrc.matchAll(/\{\s*name:\s*["'`]([^"'`]+)["'`]/g)].map((m) => m[1]);
+    if (names.length === 0) {
+      log('[SKIP] SMOKE_WITH_PRIMITIVES=1 — manifest is empty (Wave 0). Plans 3-01..3-14 will populate it.');
+    } else {
+      // Phase 3 exit gate: manifest must declare exactly 14 primitives once
+      // Plans 3-01..3-14 land. Guard rejects a partially-populated manifest
+      // slipping into a "green" CI run before the wave completes.
+      if (names.length !== 14) {
+        die(
+          `SMOKE_WITH_PRIMITIVES=1 expected 14 primitives in manifest, found ${names.length}: ${names.join(', ')}`,
+        );
+      }
+      log(`[SMOKE_WITH_PRIMITIVES] installing ${names.length} primitives: ${names.join(', ')}`);
+      // REG points at localhost:3000 (phase 2 default) but CI + playwright
+      // use 3030. Honor either via SMOKE_REGISTRY_BASE override, else reuse
+      // REG's origin so the hello step and primitives step stay aligned.
+      const base =
+        process.env.SMOKE_REGISTRY_BASE ||
+        (REG.match(/^https?:\/\/[^/]+/) || [''])[0] ||
+        'http://localhost:3000';
+      for (const name of names) {
+        const url = `${base}/r/${name}.json`;
+        const rc = run('pnpm', ['dlx', 'shadcn@latest', 'add', url, '--yes', '--overwrite'], {
+          cwd: consumer,
+        });
+        if (rc !== 0) die(`shadcn add ${name} failed (${url})`);
+        // Assert the component source landed at either src/ or root alias.
+        const compPathSrc = join(consumer, `src/components/ui/${name}.tsx`);
+        const compPathRoot = join(consumer, `components/ui/${name}.tsx`);
+        const found = existsSync(compPathSrc)
+          ? compPathSrc
+          : existsSync(compPathRoot)
+            ? compPathRoot
+            : null;
+        if (!found) {
+          die(`expected components/ui/${name}.tsx not found (checked ${compPathSrc} and ${compPathRoot})`);
+        }
+        log(`[PASS] ${name}.tsx installed at ${found}`);
+      }
+      const rebuildRc = run('pnpm', ['build'], { cwd: consumer });
+      if (rebuildRc !== 0) die('consumer rebuild after primitive install failed');
+      log(`[PASS] all ${names.length} primitives installed and consumer rebuilt`);
+    }
+  }
 } catch (e) {
   failed = true;
   console.error('[smoke] unexpected error:', e);

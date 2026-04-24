@@ -1,0 +1,74 @@
+import { CopyInstallButton } from "@/components/docs/CopyInstallButton";
+
+export const metadata = {
+  title: "Checkbox — DGC MiniApp Design System",
+  description:
+    "Radix Checkbox — 20×20 box with --brand fill when checked, inline check/minus glyph.",
+};
+
+# Checkbox
+
+Binary selection primitive built on `@radix-ui/react-checkbox`. The box is 20×20 px with a 1.5 px `--gray-300` border; checked state fills with `--brand` and renders a white check glyph. Supports an indeterminate state for partial selections.
+
+## Installation
+
+<CopyInstallButton name="checkbox" />
+
+## Props
+
+| Prop             | Type                                     | Default   | Description                                              |
+| ---------------- | ---------------------------------------- | --------- | -------------------------------------------------------- |
+| `checked`        | `boolean \| "indeterminate"`             | —         | Controlled checked state. `"indeterminate"` renders a minus glyph. |
+| `defaultChecked` | `boolean \| "indeterminate"`             | `false`   | Uncontrolled initial state.                              |
+| `onCheckedChange`| `(checked: boolean \| "indeterminate") => void` | —  | Fires on toggle.                                         |
+| `disabled`       | `boolean`                                | `false`   | Applies `--gray-100` fill and blocks interaction.        |
+| `required`       | `boolean`                                | `false`   | Marks required for form submission.                      |
+
+## Variants
+
+Checkbox states, visual-only, listed below. Try them in the [checkbox playground](/preview/checkbox/).
+
+| State         | Background  | Border         | Glyph        |
+| ------------- | ----------- | -------------- | ------------ |
+| Unchecked     | `--card`    | `--gray-300`   | none         |
+| Checked       | `--brand`   | `--brand`      | white check  |
+| Indeterminate | `--brand`   | `--brand`      | white minus  |
+| Disabled      | `--gray-100`| `--gray-200`   | none         |
+
+## Usage
+
+### Khmer / ភាសាខ្មែរ
+
+```tsx
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+
+export function ConsentKm() {
+  return (
+    <div className="flex items-center gap-2">
+      <Checkbox id="consent" />
+      <Label htmlFor="consent">ខ្ញុំយល់ព្រមតាមលក្ខខណ្ឌ</Label>
+    </div>
+  );
+}
+```
+
+### English
+
+```tsx
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+
+export function ConsentEn() {
+  return (
+    <div className="flex items-center gap-2">
+      <Checkbox id="consent" />
+      <Label htmlFor="consent">I agree to the terms</Label>
+    </div>
+  );
+}
+```
+
+## Playground
+
+See the [checkbox playground](/preview/checkbox/) for checked, indeterminate, disabled, and Khmer-label states.

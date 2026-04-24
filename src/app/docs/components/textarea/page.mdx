@@ -1,0 +1,74 @@
+import { CopyInstallButton } from "@/components/docs/CopyInstallButton";
+
+export const metadata = {
+  title: "Textarea — DGC MiniApp Design System",
+  description:
+    "Minimum-88 px multiline textarea with vertical resize and Input-parity state matrix.",
+};
+
+# Textarea
+
+Multiline text field. Shares the full state matrix with [Input](/docs/components/input/). Minimum height is 88 px and the resize handle is restricted to the vertical axis.
+
+## Installation
+
+<CopyInstallButton name="textarea" />
+
+## Props
+
+| Prop             | Type       | Default | Description                                                     |
+| ---------------- | ---------- | ------- | --------------------------------------------------------------- |
+| `placeholder`    | `string`   | —       | Placeholder text, coloured via `--muted-foreground`.            |
+| `rows`           | `number`   | `3`     | Initial row count. Height grows with `resize: vertical`.        |
+| `disabled`       | `boolean`  | `false` | Renders with `--background` fill and `cursor: not-allowed`.    |
+| `aria-invalid`   | `boolean`  | —       | Switches border to `--danger` for error state.                  |
+| `aria-describedby` | `string` | —       | References the error or description element.                    |
+
+## Variants
+
+Textarea uses the same four states as Input. See the [textarea playground](/preview/textarea/) for toggles.
+
+| State    | Border token | Background token | Notes                            |
+| -------- | ------------ | ---------------- | -------------------------------- |
+| Default  | `--input`    | `--card`         | Vertical resize handle visible.  |
+| Focus    | `--blue-700` | `--card`         | 3 px `--shadow-focus` ring.      |
+| Error    | `--danger`   | `--card`         | `aria-invalid="true"`.           |
+| Disabled | `--input`    | `--background`   | `cursor: not-allowed`.           |
+
+## Usage
+
+### Khmer / ភាសាខ្មែរ
+
+```tsx
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+
+export function NoteFieldKm() {
+  return (
+    <div className="flex flex-col gap-2">
+      <Label htmlFor="note">ចំណាំបន្ថែម</Label>
+      <Textarea id="note" placeholder="បញ្ចូលចំណាំ" rows={4} />
+    </div>
+  );
+}
+```
+
+### English
+
+```tsx
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+
+export function NoteFieldEn() {
+  return (
+    <div className="flex flex-col gap-2">
+      <Label htmlFor="note">Additional notes</Label>
+      <Textarea id="note" placeholder="Enter a note" rows={4} />
+    </div>
+  );
+}
+```
+
+## Playground
+
+See the [textarea playground](/preview/textarea/) for all states plus Khmer descender handling.

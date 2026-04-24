@@ -1,0 +1,79 @@
+import { CopyInstallButton } from "@/components/docs/CopyInstallButton";
+
+export const metadata = {
+  title: "ScrollArea — DGC MiniApp Design System",
+  description:
+    "Radix ScrollArea — 8 px --gray-300 thumb with pill corners, fades on hover, consumer sets height.",
+};
+
+# ScrollArea
+
+Custom scroll container built on `@radix-ui/react-scroll-area`. Replaces native scrollbars with an 8 px thumb (`--gray-300`, `--radius-pill`) that fades in on hover and focus over `--dur-fast`. The component does not self-constrain — the consumer MUST set an explicit `height` or `max-height`.
+
+## Installation
+
+<CopyInstallButton name="scroll-area" />
+
+## Props
+
+| Sub-part            | Key props / notes                                                                             |
+| ------------------- | --------------------------------------------------------------------------------------------- |
+| `ScrollArea`        | `type` (default `"hover"`), `scrollHideDelay`. Root container; set `height` or `max-height`.   |
+| `ScrollAreaViewport`| Scrollable content viewport. Consumes overflow from `ScrollArea`'s sized box.                   |
+| `ScrollBar`         | `orientation` (`"vertical" \| "horizontal"`, default `"vertical"`). Pill-radius thumb.         |
+| `ScrollAreaCorner`  | Intersection of vertical + horizontal scrollbars. Transparent by default.                      |
+
+## Variants
+
+ScrollArea exposes no tonal variants — one scrollbar treatment across every instance. Behaviour varies by `type`. Try it in the [scroll-area playground](/preview/scroll-area/).
+
+| Aspect          | Value                                                     |
+| --------------- | --------------------------------------------------------- |
+| Thumb width     | 8 px                                                      |
+| Thumb colour    | `--gray-300` (hover `--gray-400`)                         |
+| Track colour    | transparent                                               |
+| Radius          | `--radius-pill` (thumb) / 0 (track)                       |
+| Fade timing     | `--dur-fast`                                              |
+| Default `type`  | `"hover"` — scrollbar visible only on hover / focus       |
+
+## Usage
+
+### Khmer / ភាសាខ្មែរ
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+export function NoticeListKm() {
+  return (
+    <ScrollArea className="h-60 rounded-[var(--radius-md)] border border-border p-4">
+      <ul className="flex flex-col gap-2">
+        <li>ការជូនដំណឹងទី ១</li>
+        <li>ការជូនដំណឹងទី ២</li>
+        <li>ការជូនដំណឹងទី ៣</li>
+      </ul>
+    </ScrollArea>
+  );
+}
+```
+
+### English
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+export function NoticeListEn() {
+  return (
+    <ScrollArea className="h-60 rounded-[var(--radius-md)] border border-border p-4">
+      <ul className="flex flex-col gap-2">
+        <li>Notice one</li>
+        <li>Notice two</li>
+        <li>Notice three</li>
+      </ul>
+    </ScrollArea>
+  );
+}
+```
+
+## Playground
+
+See the [scroll-area playground](/preview/scroll-area/) for thumb fade-in behaviour, keyboard scrolling, and max-height configuration.
