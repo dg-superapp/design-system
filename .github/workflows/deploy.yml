@@ -36,6 +36,12 @@ jobs:
       - name: Lint (fails CI on lint errors — R10.4)
         run: pnpm lint
 
+      - name: Typecheck (Phase 3 Wave 0 gate)
+        run: pnpm typecheck
+
+      - name: Unit tests (Phase 3 Wave 0 gate)
+        run: pnpm test:unit
+
       # HEX→HSL converter spec is a LOCAL-ONLY check — requires
       # project/colors_and_type.css from the sibling design-system repo,
       # which is intentionally not vendored here. Run locally before PR:
@@ -58,6 +64,19 @@ jobs:
 
       - name: Disable Jekyll
         run: touch out/.nojekyll
+
+      # Phase 3 D-16: axe gate runs against the freshly-built static
+      # export before we ship it. `test:a11y` greps for the `a11y` tag
+      # in spec titles; Wave 0 has no tagged specs so the step passes
+      # vacuously. Plans 3-01..3-14 add per-primitive a11y checks that
+      # this step will enforce automatically.
+      - name: Install Playwright Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: a11y tests (axe + playwright — D-16)
+        env:
+          PLAYWRIGHT_BASE_URL: http://localhost:3030
+        run: pnpm test:a11y
 
       - name: Upload Pages artifact
         if: github.event_name == 'push'
