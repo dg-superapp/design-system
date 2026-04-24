@@ -330,6 +330,32 @@
         }
       ],
       "cssVars": {}
+    },
+    {
+      "name": "form",
+      "type": "registry:ui",
+      "title": "Form",
+      "description": "React-hook-form + Zod bundle — 7 canonical shadcn exports (Form, FormField, FormItem, FormLabel, FormControl, FormDescription, FormMessage). FormMessage uses hsl(var(--danger)) + aria-live=polite; FormControl injects aria-invalid + aria-describedby onto child Input/Select/Textarea. Junction primitive — installs Label + Input via registryDependencies cascade.",
+      "dependencies": [
+        "react-hook-form",
+        "zod",
+        "@hookform/resolvers",
+        "@radix-ui/react-slot",
+        "@radix-ui/react-label"
+      ],
+      "registryDependencies": [
+        "https://registry.016910804.xyz/r/dgc-theme.json",
+        "https://registry.016910804.xyz/r/label.json",
+        "https://registry.016910804.xyz/r/input.json"
+      ],
+      "files": [
+        {
+          "path": "registry/form/form.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/form.tsx"
+        }
+      ],
+      "cssVars": {}
     }
   ]
 }

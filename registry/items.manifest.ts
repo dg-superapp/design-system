@@ -374,4 +374,34 @@ export const items: ManifestEntry[] = [
       },
     ] as const,
   },
+  {
+    name: 'form',
+    title: 'Form',
+    docsSlug: 'form',
+    registryUrl: itemUrl('form'),
+    description:
+      'React-hook-form + Zod bundle — 7 canonical exports, --danger error tokens, aria-live FormMessage, aria-invalid injection via Slot.',
+    controls: [
+      {
+        kind: 'text',
+        name: 'fullName',
+        label: 'Full name (initial)',
+        default: 'លី សុផាត',
+        placeholder: 'Full legal name',
+      },
+      {
+        kind: 'text',
+        name: 'email',
+        label: 'Email (initial)',
+        default: '',
+        placeholder: 'name@example.com',
+      },
+      {
+        kind: 'boolean',
+        name: 'forceInvalid',
+        label: 'Pre-fill as invalid',
+        default: false,
+      },
+    ] as const,
+  },
 ];
