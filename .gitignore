@@ -40,6 +40,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# GSD planning lives in sibling design-system repo — junction only
+.planning
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
