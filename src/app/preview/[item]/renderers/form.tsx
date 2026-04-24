@@ -95,6 +95,7 @@ function FormInner({
         className="flex max-w-md flex-col gap-4"
         aria-label="playground-form"
         data-testid="playground-form"
+        noValidate
       >
         <FormField
           control={form.control}
