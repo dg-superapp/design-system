@@ -1,0 +1,148 @@
+import { CopyInstallButton } from "@/components/docs/CopyInstallButton";
+
+export const metadata = {
+  title: "Form — DGC MiniApp Design System",
+  description:
+    "React-hook-form + Zod bundle — seven canonical sub-parts with --danger error tokens and aria-live FormMessage.",
+};
+
+# Form
+
+Form bundle built on `react-hook-form` + `zod`. Exports seven canonical sub-parts — `Form`, `FormField`, `FormItem`, `FormLabel`, `FormControl`, `FormMessage`, `FormDescription` — that wire accessible error messaging, `aria-invalid` injection via Radix `Slot`, and a polite `aria-live` region for each field's error text. Error colour is `--danger` (`--red-700`) throughout.
+
+## Installation
+
+<CopyInstallButton name="form" />
+
+> Security: Client validation only. Server MUST re-validate every submission. Zod schemas in the browser are for user experience, not trust. Never rely on a form whose validation happened only in the client.
+>
+> សុវត្ថិភាព៖ ការត្រួតពិនិត្យនៅខាងអតិថិជនសម្រាប់ UX តែប៉ុណ្ណោះ។ ម៉ាស៊ីនបម្រើត្រូវតែធ្វើសុពលភាពឡើងវិញរាល់ការដាក់ស្នើ។
+
+## Props
+
+| Sub-part          | Key props / notes                                                                                     |
+| ----------------- | ----------------------------------------------------------------------------------------------------- |
+| `Form`            | Spread of `useForm()` return. Wraps children in `FormProvider`.                                        |
+| `FormField`       | `name`, `control`, `render`. Binds a controller to one RHF field.                                      |
+| `FormItem`        | Vertical stack, `gap: --space-1` (4 px). Generates a stable field id via `useId`.                      |
+| `FormLabel`       | Inherits `Label` (§ 2.8). Supports `required` asterisk in `--red-600`.                                 |
+| `FormControl`     | Radix `Slot`. Injects `aria-invalid`, `aria-describedby`, and `id` into the wrapped control.           |
+| `FormDescription` | `--text-xs`, `--muted-foreground`. Rendered above `FormMessage`, connected via `aria-describedby`.     |
+| `FormMessage`     | `--text-xs`, `--danger`. `aria-live="polite"`. Only renders when the field has an error.               |
+
+## Variants
+
+Form exposes no visual variants — it is a behavioural bundle. Error state is derived automatically from RHF's `fieldState.error`. Try the [form playground](/preview/form/) for invalid-state screenshots and focus-on-first-error behaviour.
+
+| State   | FormControl                  | FormMessage                    |
+| ------- | ---------------------------- | ------------------------------ |
+| Valid   | no `aria-invalid`            | not rendered                   |
+| Invalid | `aria-invalid="true"`        | `--danger` text, `aria-live`   |
+
+## Usage
+
+### Khmer / ភាសាខ្មែរ
+
+```tsx
+"use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+
+const schema = z.object({
+  email: z.string().email("អាស័យដ្ឋានអ៊ីមែលមិនត្រឹមត្រូវ"),
+});
+
+export function SignInFormKm() {
+  const form = useForm<z.infer<typeof schema>>({
+    resolver: zodResolver(schema),
+    defaultValues: { email: "" },
+  });
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit((v) => console.log(v))}>
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel required>អាស័យដ្ឋានអ៊ីមែល</FormLabel>
+              <FormControl>
+                <Input type="email" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">បញ្ជូន</Button>
+      </form>
+    </Form>
+  );
+}
+```
+
+### English
+
+```tsx
+"use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+
+const schema = z.object({
+  email: z.string().email("Enter a valid email address"),
+});
+
+export function SignInFormEn() {
+  const form = useForm<z.infer<typeof schema>>({
+    resolver: zodResolver(schema),
+    defaultValues: { email: "" },
+  });
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit((v) => console.log(v))}>
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel required>Email address</FormLabel>
+              <FormControl>
+                <Input type="email" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
+  );
+}
+```
+
+## Playground
+
+See the [form playground](/preview/form/) for invalid-state rendering, focus-on-first-error, and bilingual error copy.
