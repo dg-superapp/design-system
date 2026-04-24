@@ -24,3 +24,4 @@
 
 - [x] Task 1 — branch `phase/2-theme` from main; `scripts/hex-to-hsl.mjs` (HEX→HSL, --verify flag, 9-entry golden table); `scripts/hex-to-hsl.spec.mjs` (8 assertions passing); `#0D47A1 → 216 85% 34%` verified.
 - [x] Task 2 — `registry/dgc-theme/theme.css` authored (306 lines). All 8 grep assertions pass: --brand, @custom-variant dark, no [data-theme], no hsl() wrapper in var values, --radius: 0.75rem, :lang(km), no Moul, --sidebar-* (D4). Pitfall 6 file order respected. `pnpm registry:build` clean.
+- [x] Task 3 — `registry/dgc-theme/registry-item.json` created (inline convention); root `registry.json` gained `meta.version: 0.2.0` + `dgc-theme` item above `hello`. `shadcn build` emitted `public/r/dgc-theme.json`; 8 schema asserts pass (type=registry:theme, light.primary=216 85% 34%, brand+sidebar-primary present, no hsl() wrappers).
