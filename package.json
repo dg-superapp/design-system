@@ -10,7 +10,9 @@
     "format": "prettier --write .",
     "registry:build": "shadcn build",
     "registry:watch": "shadcn build --watch",
-    "drift:check": "node scripts/check-dogfood.mjs"
+    "drift:check": "node scripts/check-dogfood.mjs",
+    "visual:diff": "node scripts/visual-diff.mjs",
+    "smoke:consumer": "node scripts/smoke-consumer.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -31,10 +33,12 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.15",
+    "playwright": "^1.59.1",
     "prettier": "^3.8.3",
     "prettier-plugin-tailwindcss": "0.0.0-insiders.f7d2598",
     "shadcn": "^4.4.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wait-on": "^9.0.5"
   }
 }
