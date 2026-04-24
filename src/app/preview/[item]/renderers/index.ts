@@ -7,6 +7,7 @@ import { CheckboxPreview } from './checkbox';
 import { RadioPreview } from './radio';
 import { SwitchPreview } from './switch';
 import { LabelPreview } from './label';
+import { BadgePreview } from './badge';
 
 /**
  * Preview renderer registry — Phase 3 Plan 3-01.
@@ -34,4 +35,5 @@ export const previewRenderers: Record<string, PreviewRenderer> = {
   radio: RadioPreview,
   switch: SwitchPreview,
   label: LabelPreview,
+  badge: BadgePreview,
 };

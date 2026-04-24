@@ -250,6 +250,22 @@
         }
       ],
       "cssVars": {}
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "CVA Badge primitive — 22px pill with EXACTLY 4 tones (default/success/warning/danger) via --muted/--success-bg/--warning-bg/--danger-bg token pairs, --radius-pill, --text-xs font-medium, optional 12px leading icon slot.",
+      "dependencies": ["class-variance-authority", "lucide-react"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/badge/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/badge.tsx"
+        }
+      ],
+      "cssVars": {}
     }
   ]
 }

@@ -269,4 +269,27 @@ export const items: ManifestEntry[] = [
       { kind: 'boolean', name: 'disabled', default: false },
     ] as const,
   },
+  {
+    name: 'badge',
+    title: 'Badge',
+    docsSlug: 'badge',
+    registryUrl: itemUrl('badge'),
+    description:
+      'CVA Badge — 22px pill with 4 tones (default/success/warning/danger) + optional 12px icon.',
+    controls: [
+      {
+        kind: 'variant',
+        name: 'tone',
+        options: ['default', 'success', 'warning', 'danger'] as const,
+        default: 'default',
+      },
+      { kind: 'boolean', name: 'withIcon', default: false },
+      {
+        kind: 'text',
+        name: 'label',
+        default: 'ព័ត៌មាន',
+        placeholder: 'Badge label',
+      },
+    ] as const,
+  },
 ];
