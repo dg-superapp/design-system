@@ -3,6 +3,8 @@ name: Build & Deploy Registry
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -49,11 +51,14 @@ jobs:
       - name: Disable Jekyll
         run: touch out/.nojekyll
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload Pages artifact
+        if: github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
   deploy:
+    if: github.event_name == 'push'
     needs: build
     runs-on: ubuntu-latest
     environment:
