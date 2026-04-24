@@ -149,4 +149,30 @@ export const items: ManifestEntry[] = [
       { kind: 'boolean', name: 'required', default: false },
     ] as const,
   },
+  {
+    name: 'textarea',
+    title: 'Textarea',
+    docsSlug: 'textarea',
+    registryUrl: itemUrl('textarea'),
+    description:
+      'Min-height 88px textarea with vertical resize + Input-parity state matrix.',
+    controls: [
+      {
+        kind: 'text',
+        name: 'placeholder',
+        default: 'បញ្ចូលចំណាំ',
+        placeholder: 'Textarea placeholder',
+      },
+      {
+        kind: 'number',
+        name: 'rows',
+        default: 3,
+        min: 1,
+        max: 12,
+        step: 1,
+      },
+      { kind: 'boolean', name: 'invalid', default: false },
+      { kind: 'boolean', name: 'disabled', default: false },
+    ] as const,
+  },
 ];

@@ -1,6 +1,7 @@
 import type { ComponentType } from 'react';
 import { ButtonPreview } from './button';
 import { InputPreview } from './input';
+import { TextareaPreview } from './textarea';
 
 /**
  * Preview renderer registry — Phase 3 Plan 3-01.
@@ -22,4 +23,5 @@ export type PreviewRenderer = ComponentType<PreviewRendererProps>;
 export const previewRenderers: Record<string, PreviewRenderer> = {
   button: ButtonPreview,
   input: InputPreview,
+  textarea: TextareaPreview,
 };

@@ -154,6 +154,22 @@
         }
       ],
       "cssVars": {}
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Min-height 88px textarea with vertical-only resize, DGC tokens, Input-parity state matrix, and Khmer-safe leading (coeng descenders render freely under --leading-loose).",
+      "dependencies": [],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/textarea/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/textarea.tsx"
+        }
+      ],
+      "cssVars": {}
     }
   ]
 }
