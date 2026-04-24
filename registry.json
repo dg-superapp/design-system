@@ -186,6 +186,22 @@
         }
       ],
       "cssVars": {}
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Radix Checkbox with DGC tokens — 20×20 box, --radius-xs corner, 1.5px --gray-300 border, --brand fill when checked, inline SVG check/minus glyph, --shadow-focus ring on focus-visible.",
+      "dependencies": ["@radix-ui/react-checkbox"],
+      "registryDependencies": ["https://registry.016910804.xyz/r/dgc-theme.json"],
+      "files": [
+        {
+          "path": "registry/checkbox/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/checkbox.tsx"
+        }
+      ],
+      "cssVars": {}
     }
   ]
 }

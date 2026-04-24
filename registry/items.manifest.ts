@@ -193,4 +193,27 @@ export const items: ManifestEntry[] = [
       { kind: 'boolean', name: 'disabled', default: false },
     ] as const,
   },
+  {
+    name: 'checkbox',
+    title: 'Checkbox',
+    docsSlug: 'checkbox',
+    registryUrl: itemUrl('checkbox'),
+    description:
+      'Radix Checkbox — 20×20 box with --brand fill when checked, inline check/minus glyph, --shadow-focus ring.',
+    controls: [
+      {
+        kind: 'variant',
+        name: 'checked',
+        options: ['false', 'true', 'indeterminate'] as const,
+        default: 'false',
+      },
+      { kind: 'boolean', name: 'disabled', default: false },
+      {
+        kind: 'text',
+        name: 'label',
+        default: 'យល់ព្រម',
+        placeholder: 'Checkbox label',
+      },
+    ] as const,
+  },
 ];
