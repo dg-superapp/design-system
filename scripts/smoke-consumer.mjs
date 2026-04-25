@@ -223,12 +223,14 @@ try {
     if (names.length === 0) {
       log('[SKIP] SMOKE_WITH_PRIMITIVES=1 — manifest is empty (Wave 0). Plans 3-01..3-14 will populate it.');
     } else {
-      // Phase 3 exit gate: manifest must declare exactly 14 primitives once
-      // Plans 3-01..3-14 land. Guard rejects a partially-populated manifest
-      // slipping into a "green" CI run before the wave completes.
-      if (names.length !== 14) {
+      // Phase 4 env-driven count (Pitfall 7 option 2): default 22 (full Phase 4
+      // manifest). Use >= semantics so partial Phase 4 progress doesn't break CI.
+      // Override via SMOKE_EXPECTED_COUNT env var (e.g. SMOKE_EXPECTED_COUNT=14
+      // during Phase 4 build until all 22 entries land).
+      const expected = Number(process.env.SMOKE_EXPECTED_COUNT ?? 22);
+      if (names.length < expected) {
         die(
-          `SMOKE_WITH_PRIMITIVES=1 expected 14 primitives in manifest, found ${names.length}: ${names.join(', ')}`,
+          `SMOKE_WITH_PRIMITIVES=1 expected at least ${expected} primitives in manifest, found ${names.length}: ${names.join(', ')}`,
         );
       }
       log(`[SMOKE_WITH_PRIMITIVES] installing ${names.length} primitives: ${names.join(', ')}`);
