@@ -220,6 +220,18 @@
   /* ──── Gradients / overlays ──── */
   --gradient-hero: linear-gradient(135deg, hsl(var(--blue-900)) 0%, hsl(var(--blue-700)) 100%);
   --bg-overlay: hsl(0 0% 0% / 0.5);
+
+  /* Phase 4 — Headers + Navigation tokens */
+  --app-header-h: 56px;
+  --app-header-icon: 44px;
+  --app-header-glyph: 22px;
+  --bg-surface-2: var(--gray-100);
+  --pattern-stipple: radial-gradient(circle at center, hsl(0 0% 100% / 0.18) 1px, transparent 1.5px);
+  --drawer-overlay: hsl(0 0% 0% / 0.50);
+  --drawer-width: min(82vw, 340px);
+  --ring-on-navy: 0 0 0 3px hsl(0 0% 100% / 0.55);
+  --nav-active-stripe: 3px;
+  --nav-active-bg: var(--blue-050);
 }
 
 .dark {
@@ -270,6 +282,18 @@
   /* Disabled state (dark) — UI-SPEC §2.1 */
   --bg-disabled: 222 36% 22%;
   --fg-on-disabled: 220 18% 60%;
+
+  /* Phase 4 — Headers + Navigation tokens (dark) */
+  --app-header-h: 56px;
+  --app-header-icon: 44px;
+  --app-header-glyph: 22px;
+  --bg-surface-2: 224 41% 18%;
+  --pattern-stipple: radial-gradient(circle at center, hsl(0 0% 100% / 0.10) 1px, transparent 1.5px);
+  --drawer-overlay: hsl(0 0% 0% / 0.65);
+  --drawer-width: min(82vw, 340px);
+  --ring-on-navy: 0 0 0 3px hsl(0 0% 100% / 0.65);
+  --nav-active-stripe: 3px;
+  --nav-active-bg: 221 46% 19%;
 }
 
 @layer base {
@@ -310,4 +334,22 @@
       scroll-behavior: auto !important;
     }
   }
+}
+
+/* Phase 4 — Drawer + overlay motion keyframes (consumed by side-drawer.tsx) */
+@keyframes drawer-slide-in {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+@keyframes drawer-slide-out {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+@keyframes overlay-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes overlay-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
 }
