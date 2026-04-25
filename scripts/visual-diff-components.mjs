@@ -24,7 +24,12 @@ if (!item) { console.error('--item <slug> required'); process.exit(2); }
 
 const threshold = Number(process.env.VISUAL_DIFF_THRESHOLD ?? args.threshold ?? 2);
 const devServer = process.env.DEV_SERVER ?? 'http://localhost:3000';
-const legacyPath = `D:/sources/dgc-miniapp-design-system/project/preview/${item}.html`;
+
+// Phase 4 Plan 4-08: composed blocks may not have a 1:1 named legacy specimen.
+// SPECIMEN_ALIAS maps registry slug → specimen filename (without .html).
+const SPECIMEN_ALIAS = { 'miniapp-home': 'superapp-host' };
+const legacyName = SPECIMEN_ALIAS[item] ?? item;
+const legacyPath = `D:/sources/dgc-miniapp-design-system/project/preview/${legacyName}.html`;
 const liveUrl = `${devServer}/preview/${item}`;
 
 if (!existsSync(legacyPath)) {

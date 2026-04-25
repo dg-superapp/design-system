@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "miniapp-home",
+  "type": "registry:block",
+  "title": "MiniAppHome",
+  "description": "Composed MiniApp home screen — AppHeader + HeroBanner + SectionHeader + NavRow + 6-tile placeholder grid. Phase 4 dogfood composition; Phase 6 swaps tile placeholders for real ServiceTile.",
+  "dependencies": ["lucide-react"],
+  "registryDependencies": [
+    "https://registry.016910804.xyz/r/dgc-theme.json",
+    "https://registry.016910804.xyz/r/app-header.json",
+    "https://registry.016910804.xyz/r/hero-banner.json",
+    "https://registry.016910804.xyz/r/section-header.json",
+    "https://registry.016910804.xyz/r/nav-row.json"
+  ],
+  "files": [
+    { "path": "registry/miniapp-home/miniapp-home.tsx", "type": "registry:block" }
+  ]
+}
