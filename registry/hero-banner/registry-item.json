@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-banner",
+  "type": "registry:block",
+  "title": "HeroBanner",
+  "description": "Rounded navy hero with stipple pattern, optional inner card, and 3-dot headless-controlled carousel. Consumer drives activeIndex.",
+  "dependencies": ["lucide-react"],
+  "registryDependencies": [
+    "https://registry.016910804.xyz/r/dgc-theme.json"
+  ],
+  "files": [
+    { "path": "registry/hero-banner/hero-banner.tsx", "type": "registry:block" }
+  ]
+}
