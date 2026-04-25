@@ -79,7 +79,7 @@ Plans:
 - [x] 04-03-PLAN.md — `nav-row` (R5.6) — 48px row, leading chip, label/caption, hybrid trailing (chevron/count built-in, switch via slot per D-05), active stripe full-row-height.
 - [x] 04-04-PLAN.md — `segmented-tabs` (R5.4) — Radix Tabs imported directly (Pitfall 4), surface-2 track, brand-fill active, dual API (compound + array per D-08).
 - [x] 04-05-PLAN.md — `step-indicator` (R5.5) — 28px numbered circles, 2px connector bars, 3 states, dual API (D-08), absolutely-positioned span connector (UI-SPEC Gap #4).
-- [ ] 04-06-PLAN.md — `hero-banner` (R5.2) — registry:block, headless-controlled carousel (D-10), token stipple (D-12), inert+aria-hidden inactive slides, 18×8 white pill active dot.
+- [x] 04-06-PLAN.md — `hero-banner` (R5.2) — registry:block, headless-controlled carousel (D-10), token stipple (D-12), inert+aria-hidden inactive slides, 18×8 white pill active dot.
 - [ ] 04-07-PLAN.md — `side-drawer` (R5.7) — registry:block, Radix Dialog wrapper with data-state animate-* keyframes, AppHeader cascade reuse (D-09).
 - [ ] 04-08-PLAN.md — `miniapp-home` (Exit-gate composition) — registry:block, AppHeader + HeroBanner + 2× SectionHeader + 6 HomeTiles + 3 NavRows; HomeTile inline per D-17.
 - [ ] 04-09-PLAN.md — Wave 6 finalize — bump `registry.json` to 0.4.0 with 8 new items, full smoke-consumer walk over 22 entries, visual-diff sweep, ROADMAP exit-gate edit (D-02).
