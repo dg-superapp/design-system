@@ -369,6 +369,24 @@
       "cssVars": {}
     },
     {
+      "name": "step-indicator",
+      "type": "registry:ui",
+      "title": "StepIndicator",
+      "description": "Numbered 28px step circles with 2px connector bars — pending / active / done states, dual API (steps array or compound parts).",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "https://registry.016910804.xyz/r/dgc-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/step-indicator/step-indicator.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/step-indicator.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
       "name": "segmented-tabs",
       "type": "registry:ui",
       "title": "SegmentedTabs",
