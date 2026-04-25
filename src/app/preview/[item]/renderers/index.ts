@@ -13,6 +13,15 @@ import { TabsPreview } from './tabs';
 import { SeparatorPreview } from './separator';
 import { ScrollAreaPreview } from './scroll-area';
 import { FormPreview } from './form';
+// === Phase 4 — Headers + Navigation renderers (atomic batch per ISSUE-01) ===
+import { AppHeaderPreview } from './app-header';
+import { SectionHeaderPreview } from './section-header';
+import { NavRowPreview } from './nav-row';
+import { SegmentedTabsPreview } from './segmented-tabs';
+import { StepIndicatorPreview } from './step-indicator';
+import { HeroBannerPreview } from './hero-banner';
+import { SideDrawerPreview } from './side-drawer';
+import { MiniAppHomePreview } from './miniapp-home';
 
 /**
  * Preview renderer registry — Phase 3 Plan 3-01.
@@ -46,4 +55,13 @@ export const previewRenderers: Record<string, PreviewRenderer> = {
   separator: SeparatorPreview,
   'scroll-area': ScrollAreaPreview,
   form: FormPreview,
+  // === Phase 4 — Headers + Navigation (atomic batch per ISSUE-01) ===
+  'app-header': AppHeaderPreview,
+  'section-header': SectionHeaderPreview,
+  'nav-row': NavRowPreview,
+  'segmented-tabs': SegmentedTabsPreview,
+  'step-indicator': StepIndicatorPreview,
+  'hero-banner': HeroBannerPreview,
+  'side-drawer': SideDrawerPreview,
+  'miniapp-home': MiniAppHomePreview,
 };
