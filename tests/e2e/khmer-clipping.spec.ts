@@ -27,4 +27,18 @@ test.describe('khmer clipping', () => {
       maxDiffPixelRatio: 0.05,
     });
   });
+
+  // Phase 4 Plan 4-01 (Pitfall 3 — min-h not h on the 56px navy bar).
+  // Pre-04-09 note: this test only resolves once 04-09 wires the
+  // /preview/app-header manifest + renderer barrel.
+  test('app-header — Khmer title fits in 56px bar without descender clip', async ({ page }) => {
+    await page.goto('/preview/app-header');
+    await page.waitForSelector('[data-testid="app-header-title"]', { state: 'visible' });
+    const title = page.locator('[data-testid="app-header-title"]');
+    const dims = await title.evaluate((el: HTMLElement) => ({
+      scrollHeight: el.scrollHeight,
+      clientHeight: el.clientHeight,
+    }));
+    expect(dims.scrollHeight).toBeLessThanOrEqual(dims.clientHeight);
+  });
 });
