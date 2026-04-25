@@ -1,9 +1,24 @@
+---
+gsd_state_version: 1.0
+milestone: v1.0
+milestone_name: launch
+status: unknown
+last_updated: "2026-04-25T09:02:31.697Z"
+progress:
+  total_phases: 7
+  completed_phases: 2
+  total_plans: 28
+  completed_plans: 28
+  percent: 100
+---
+
 # Project state — DGC MiniApp shadcn Registry
 
 **Initialized:** 2026-04-24
 **Mode:** auto (`/gsd-new-project --auto`)
 
 ## Where we are
+
 - Codebase mapped — `.planning/codebase/` (7 docs, 928 lines).
 - Project framed — `PROJECT.md`.
 - Requirements scoped — `REQUIREMENTS.md` (10 Rs, 60+ items).
@@ -19,9 +34,11 @@
   - `D:/sources/dgc-miniapp-shadcn/EXEC-LOG.md` has per-task status
 
 ## Current phase
+
 **Phase 1 — COMPLETE** (all 9 tasks green, 2026-04-24).
 
 Live production registry:
+
 - Repo: https://github.com/dg-superapp/design-system
 - URL: http://registry.016910804.xyz/r/hello.json → HTTP 200, valid JSON
 - CI: GitHub Actions deploy workflow succeeded on first push
@@ -32,6 +49,7 @@ Live production registry:
 Domain note: `016910804.xyz` is dev-only. Swap to `registry.dgsuperapp.gov.kh` when production DNS access granted.
 
 Artifacts:
+
 - `phases/1-scaffold/RESEARCH.md` — 665 lines
 - `phases/1-scaffold/PLAN.md` — 978 lines, 9 tasks
 - `phases/1-scaffold/PLAN-CHECK.md` — FLAG (minor, proceed)
@@ -39,9 +57,11 @@ Artifacts:
 - `D:/sources/dgc-miniapp-shadcn/EXEC-LOG.md` — per-task status
 
 ## Current phase
+
 **Phase 4 — IN PROGRESS** (started 2026-04-25). Plan 04-00 (Wave 0 infrastructure) **COMPLETE**.
 
 Plan 4-00 commits on `main`:
+
 - `9afcc20` feat(04-00): install @radix-ui/react-dialog ^1.1.15 and add test:visual script
 - `323176a` feat(04-00): append 9 Phase 4 tokens + 4 keyframes to dgc-theme/theme.css
 - `eeb8e0c` feat(04-00): scaffold visual-diff-components.mjs harness + env-driven smoke count
@@ -53,9 +73,11 @@ Unblocks: every downstream plan 4-01..4-08 can consume Phase 4 tokens and run `p
 **Next:** `/gsd-plan` 4-01 (AppHeader — first Phase 4 component). See `.planning/phases/04-headers-navigation/04-00-SUMMARY.md` for full artifact list + deviations log.
 
 ## Previous current phase
+
 **Phase 3 — IN PROGRESS** (started 2026-04-24).
 
 Plan 3-00 (Wave 0 infrastructure) **COMPLETE** — 3 atomic commits on `phase/3-primitives`:
+
 - `61f08be` feat(3-00): install test+radix+rhf deps and add test scripts
 - `654c928` feat(3-00): scaffold playwright + vitest configs with smoke tests
 - `5040e97` feat(3-00): add items.manifest, preview route, khmer test page, McxLayout, CI a11y gate
@@ -67,9 +89,11 @@ Unblocks: every downstream plan 3-01..3-14 can register `ManifestEntry` entries,
 **Next:** `/gsd-plan` 3-01 (Button — first primitive). See `.planning/phases/03-primitives/3-00-SUMMARY.md` for full artifact list + deviations log.
 
 ## Previous phase
+
 **Phase 2 — COMPLETE** (2026-04-24).
 
 Merge commit `4ac09b5` squash-merged to `main` (admin override — self-approval not possible with single maintainer). Deploy workflow succeeded. Prod now serves:
+
 - https://registry.016910804.xyz/r/dgc-theme.json → HTTP 200, 39 light + 39 dark vars, HTTPS cert live
 - https://registry.016910804.xyz/r/hello.json → cascade resolves correctly
 - https://registry.016910804.xyz/docs/foundations/tokens → MDX page live
@@ -77,10 +101,12 @@ Merge commit `4ac09b5` squash-merged to `main` (admin override — self-approval
 ## Old status (archived)
 
 Branch `phase/2-theme` pushed, **PR #2 open + CI green**:
+
 - https://github.com/dg-superapp/design-system/pull/2
 - Required check `build`: ✅ passing
 
 Task summary (11 commits on branch):
+
 1. ✅ Branch + `scripts/hex-to-hsl.mjs` converter + golden-table spec
 2. ✅ `registry/dgc-theme/theme.css` — 306 lines, HSL triplets + `.dark` + `:lang(km)`
 3. ✅ `registry-item.json` + root `registry.json` bump to `0.2.0` + `dgc-theme` item
@@ -95,6 +121,7 @@ Task summary (11 commits on branch):
 12. ⏳ **HALT: human review + approve + merge** (branch protection blocks until check + 1 approval)
 
 Artifacts:
+
 - `phases/2-theme/RESEARCH.md` — 750 lines (HSL mapping + 8 pitfalls)
 - `phases/2-theme/CONTEXT.md` — 4 decisions D1-D4 locked
 - `phases/2-theme/PLAN.md` — 880 lines, 12 tasks
@@ -102,7 +129,9 @@ Artifacts:
 - `D:/sources/dgc-miniapp-shadcn/EXEC-LOG.md` — per-task log
 
 ## Next action
+
 Human approves + merges PR #2. Post-merge:
+
 - CI redeploys to `registry.016910804.xyz`, `dgc-theme.json` goes live at prod URL
 - `/docs/foundations/tokens` MDX page deploys
 - Consumer cascade install works end-to-end (`SMOKE_WITH_HELLO=1 pnpm smoke:consumer` will pass)
@@ -110,6 +139,7 @@ Human approves + merges PR #2. Post-merge:
 After merge → run `/gsd-plan-phase 3` (primitives: Button, Input, Select, … × 14).
 
 ## Decisions on record
+
 - Target repo: `https://github.com/dg-superapp/design-system` (locked Task 6).
 - License: **MIT** (locked Task 6, applied Task 7).
 - Custom domain: **registry.016910804.xyz** (locked Task 6, applied Task 7).
@@ -122,13 +152,16 @@ After merge → run `/gsd-plan-phase 3` (primitives: Button, Input, Select, … 
 - Lucide icons continue as placeholder until DGC production set delivered.
 
 ## Blockers
+
 - None. Phase 1 can start immediately.
 
 ## Risks in flight
+
 - Tailwind v4 + shadcn CLI integration freshness (Mar 2026). Budget for API churn in Phase 1–2.
 - HEX → HSL token conversion visual parity — spot-check against `project/preview/*.html` during Phase 2.
 - GitHub Pages CORS on registry JSON — mitigated by custom domain; never use `raw.githubusercontent.com`.
 
 ## Scratch / open questions
+
 - Should the new repo name be `dg-superapp/design-system` or `dg-superapp/ui`? Confirm at Phase 1 kickoff.
 - Migrate tokens converter to npm package or keep as repo-local script? Likely repo-local for now.
