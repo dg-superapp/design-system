@@ -77,7 +77,7 @@ Plans:
 - [x] 04-01-PLAN.md — `app-header` (R5.1) — 56px navy gradient, 3-slot grid, 44px icon-buttons, dot/count badges with navy border, white focus ring on navy.
 - [x] 04-02-PLAN.md — `section-header` (R5.3) — title + accent action-link.
 - [x] 04-03-PLAN.md — `nav-row` (R5.6) — 48px row, leading chip, label/caption, hybrid trailing (chevron/count built-in, switch via slot per D-05), active stripe full-row-height.
-- [ ] 04-04-PLAN.md — `segmented-tabs` (R5.4) — Radix Tabs imported directly (Pitfall 4), surface-2 track, brand-fill active, dual API (compound + array per D-08).
+- [x] 04-04-PLAN.md — `segmented-tabs` (R5.4) — Radix Tabs imported directly (Pitfall 4), surface-2 track, brand-fill active, dual API (compound + array per D-08).
 - [ ] 04-05-PLAN.md — `step-indicator` (R5.5) — 28px numbered circles, 2px connector bars, 3 states, dual API (D-08), absolutely-positioned span connector (UI-SPEC Gap #4).
 - [ ] 04-06-PLAN.md — `hero-banner` (R5.2) — registry:block, headless-controlled carousel (D-10), token stipple (D-12), inert+aria-hidden inactive slides, 18×8 white pill active dot.
 - [ ] 04-07-PLAN.md — `side-drawer` (R5.7) — registry:block, Radix Dialog wrapper with data-state animate-* keyframes, AppHeader cascade reuse (D-09).
