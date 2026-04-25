@@ -351,6 +351,24 @@
       "cssVars": {}
     },
     {
+      "name": "section-header",
+      "type": "registry:ui",
+      "title": "SectionHeader",
+      "description": "Section title with optional accent action-link.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://registry.016910804.xyz/r/dgc-theme.json"
+      ],
+      "files": [
+        {
+          "path": "registry/section-header/section-header.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/section-header.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
       "name": "form",
       "type": "registry:ui",
       "title": "Form",
