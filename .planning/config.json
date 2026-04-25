@@ -1,0 +1,23 @@
+{
+  "project": "dgc-miniapp-shadcn-registry",
+  "mode": "auto",
+  "research": true,
+  "roadmap_style": "phases",
+  "execution_style": "atomic_commits",
+  "target_repo": "https://github.com/dg-superapp",
+  "source_project": "D:/sources/dgc-miniapp-design-system",
+  "framework": "shadcn-registry",
+  "stack_decisions": {
+    "framework_react": "shadcn requires React + Tailwind",
+    "styling": "Tailwind CSS + CSS variables (from existing colors_and_type.css)",
+    "ts": true,
+    "registry_spec": "https://ui.shadcn.com/docs/registry",
+    "distribution": "GitHub repo under dg-superapp org; registry items served as JSON",
+    "package_manager": "pnpm"
+  },
+  "defaults_used": true,
+  "workflow": {
+    "_auto_chain_active": true,
+    "use_worktrees": false
+  }
+}
