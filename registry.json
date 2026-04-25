@@ -369,6 +369,25 @@
       "cssVars": {}
     },
     {
+      "name": "nav-row",
+      "type": "registry:ui",
+      "title": "NavRow",
+      "description": "List row — 24px leading chip + label + optional caption + chevron/count/custom trailing. 48px min-height. Active state: --nav-active-bg tint + 3px brand stripe.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "https://registry.016910804.xyz/r/dgc-theme.json",
+        "https://registry.016910804.xyz/r/badge.json"
+      ],
+      "files": [
+        {
+          "path": "registry/nav-row/nav-row.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/nav-row.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
       "name": "form",
       "type": "registry:ui",
       "title": "Form",
