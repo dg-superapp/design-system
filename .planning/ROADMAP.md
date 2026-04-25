@@ -81,7 +81,7 @@ Plans:
 - [x] 04-05-PLAN.md — `step-indicator` (R5.5) — 28px numbered circles, 2px connector bars, 3 states, dual API (D-08), absolutely-positioned span connector (UI-SPEC Gap #4).
 - [x] 04-06-PLAN.md — `hero-banner` (R5.2) — registry:block, headless-controlled carousel (D-10), token stipple (D-12), inert+aria-hidden inactive slides, 18×8 white pill active dot.
 - [x] 04-07-PLAN.md — `side-drawer` (R5.7) — registry:block, Radix Dialog wrapper with data-state animate-* keyframes, AppHeader cascade reuse (D-09).
-- [ ] 04-08-PLAN.md — `miniapp-home` (Exit-gate composition) — registry:block, AppHeader + HeroBanner + 2× SectionHeader + 6 HomeTiles + 3 NavRows; HomeTile inline per D-17.
+- [x] 04-08-PLAN.md — `miniapp-home` (Exit-gate composition) — registry:block, AppHeader + HeroBanner + 2× SectionHeader + 6 HomeTiles + 3 NavRows; HomeTile inline per D-17.
 - [ ] 04-09-PLAN.md — Wave 6 finalize — bump `registry.json` to 0.4.0 with 8 new items, full smoke-consumer walk over 22 entries, visual-diff sweep, ROADMAP exit-gate edit (D-02).
 
 **Exit.** Example MiniApp screen `/preview/miniapp-home` composes AppHeader + HeroBanner + tile-stub grid without manual glue. (Wave 6 plan 04-09 commits this exit-gate text edit per D-02.)
