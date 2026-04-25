@@ -39,6 +39,20 @@ Artifacts:
 - `D:/sources/dgc-miniapp-shadcn/EXEC-LOG.md` — per-task status
 
 ## Current phase
+**Phase 4 — IN PROGRESS** (started 2026-04-25). Plan 04-00 (Wave 0 infrastructure) **COMPLETE**.
+
+Plan 4-00 commits on `main`:
+- `9afcc20` feat(04-00): install @radix-ui/react-dialog ^1.1.15 and add test:visual script
+- `323176a` feat(04-00): append 9 Phase 4 tokens + 4 keyframes to dgc-theme/theme.css
+- `eeb8e0c` feat(04-00): scaffold visual-diff-components.mjs harness + env-driven smoke count
+
+Gates green: `pnpm typecheck && pnpm test:unit && pnpm registry:build && pnpm test:visual -- --item hello`. 9 new CSS tokens in both light + dark scopes, 4 keyframes, `@radix-ui/react-dialog@^1.1.15` installed, `pnpm test:visual` script wired, smoke-consumer count env-driven (SMOKE_EXPECTED_COUNT default 22, >= semantics).
+
+Unblocks: every downstream plan 4-01..4-08 can consume Phase 4 tokens and run `pnpm test:visual -- <item>` for per-task verification.
+
+**Next:** `/gsd-plan` 4-01 (AppHeader — first Phase 4 component). See `.planning/phases/04-headers-navigation/04-00-SUMMARY.md` for full artifact list + deviations log.
+
+## Previous current phase
 **Phase 3 — IN PROGRESS** (started 2026-04-24).
 
 Plan 3-00 (Wave 0 infrastructure) **COMPLETE** — 3 atomic commits on `phase/3-primitives`:
