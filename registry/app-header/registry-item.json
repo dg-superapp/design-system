@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "app-header",
+  "type": "registry:ui",
+  "title": "AppHeader",
+  "description": "MiniApp top navigation bar — 56px navy gradient with 3-slot grid, 44px touch icon-buttons, dot/count badges with navy border.",
+  "dependencies": ["lucide-react"],
+  "registryDependencies": [
+    "https://registry.016910804.xyz/r/dgc-theme.json",
+    "https://registry.016910804.xyz/r/badge.json"
+  ],
+  "files": [
+    { "path": "registry/app-header/app-header.tsx", "type": "registry:ui" }
+  ]
+}
