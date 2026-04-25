@@ -369,6 +369,26 @@
       "cssVars": {}
     },
     {
+      "name": "side-drawer",
+      "type": "registry:block",
+      "title": "SideDrawer",
+      "description": "Left-edge slide-in drawer built on Radix Dialog. Reuses AppHeader inside a sr-only Title; pairs ScrollArea for nav list. Cascade-installs dgc-theme, app-header, scroll-area.",
+      "dependencies": ["@radix-ui/react-dialog", "lucide-react"],
+      "registryDependencies": [
+        "https://registry.016910804.xyz/r/dgc-theme.json",
+        "https://registry.016910804.xyz/r/app-header.json",
+        "https://registry.016910804.xyz/r/scroll-area.json"
+      ],
+      "files": [
+        {
+          "path": "registry/side-drawer/side-drawer.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/side-drawer.tsx"
+        }
+      ],
+      "cssVars": {}
+    },
+    {
       "name": "hero-banner",
       "type": "registry:block",
       "title": "HeroBanner",
