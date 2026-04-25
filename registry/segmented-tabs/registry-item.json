@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "segmented-tabs",
+  "type": "registry:ui",
+  "title": "SegmentedTabs",
+  "description": "Pill-group tab navigation — surface-2 track, brand-fill active. Built on @radix-ui/react-tabs directly (does not depend on the Phase 3 tabs item).",
+  "dependencies": ["@radix-ui/react-tabs", "lucide-react"],
+  "registryDependencies": [
+    "https://registry.016910804.xyz/r/dgc-theme.json"
+  ],
+  "files": [
+    { "path": "registry/segmented-tabs/segmented-tabs.tsx", "type": "registry:ui" }
+  ]
+}
